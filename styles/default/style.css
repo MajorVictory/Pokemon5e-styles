@@ -1,0 +1,174 @@
+
+#controls {
+    background-color: #BFB7AF;
+    border-image: url('/modules/Pokemon5e-styles/images/border-button.png') 21 20 20 19 fill round;
+    border-width: 21px 20px 20px 19px;
+    border-style: solid;
+    padding: 0px !important;
+    top: 60px !important;
+}
+
+#controls .scene-control, #controls .control-tool {
+    width: 30px !important;
+    height: 30px !important;
+    box-sizing: content-box;
+    line-height: 30px !important;
+    box-shadow: none !important;
+    margin: 0 0 4px;
+    cursor: pointer;
+    color: white !important;
+    background: rgb(56,144,216);
+	background: linear-gradient(0deg, rgba(56,144,216,1) 20%, rgba(128,192,216,1) 30%); 
+	background-origin: border-box;
+    border-image: url('/modules/Pokemon5e-styles/images/border-control-button.png') 12 fill round !important;
+    border-width: 12px !important;
+    border-style: solid !important;
+    background-clip: border-box !important;
+    border-radius: 25px !important;
+}
+
+#controls .scene-control.active, #controls .control-tool.active, #controls .scene-control:hover, #controls .control-tool:hover {
+	width: 30px !important;
+    height: 30px !important;
+    box-sizing: content-box;
+    line-height: 30px !important;
+    box-shadow: none !important;
+    margin: 0 0 4px;
+    cursor: pointer;
+    color: white !important;
+    background: rgb(120,208,232);
+	background: linear-gradient(0deg, rgba(120,208,232,1) 20%, rgba(168,232,248,1) 30%); 
+	background-origin: border-box;
+    border-image: url('/modules/Pokemon5e-styles/images/border-control-button-select.png') 12 fill round !important;
+    border-width: 12px !important;
+    border-style: solid !important;
+    background-clip: border-box !important;
+    border-radius: 25px !important;
+}
+
+#controls .control-tool.toggle { 
+	background: rgb(95,50,207);
+	background: linear-gradient(0deg, rgba(95,50,207,1) 20%, rgba(145,120,212,1) 30%);  
+	background-origin: border-box;
+}
+
+#controls .control-tool.toggle.active, #controls .control-tool.toggle:hover {   
+	background: rgb(59,24,147);
+	background: linear-gradient(0deg, rgba(59,24,147,1) 20%, rgba(112,88,176,1) 30%);
+	background-origin: border-box;
+	color: #F87030 !important;
+}
+
+#controls .control-tools {
+    margin: 0;
+    padding: 0px 0px 0px 5px !important;
+    left: 74px !important;
+    top: -15px !important;
+    border-image: url('/modules/Pokemon5e-styles/images/border-button-sub.png') 14 14 13 12 fill stretch !important;
+    border-width: 14px 14px 13px 12px !important;
+    border-style: solid !important;
+    border-image-outset: 14px 14px 13px 12px;
+}
+
+.window-app {
+	border-image: url('/modules/Pokemon5e-styles/images/dialog-border-bg.png') 8 round;
+    border-width: 8px;
+    border-style: solid;
+}
+
+.window-app .window-header {
+	border: 1px solid #285068;
+    background-image: url('/modules/Pokemon5e-styles/images/dialog-header-bg.png');
+    background-size: contain;
+    background-repeat: repeat-x;
+}
+
+.window-app .window-header .window-title {
+    font-family: five_fonts_at_freddysregular, monospace;
+    line-height: 34px !important;
+}
+
+.dnd5e.sheet.item .sheet-header {
+    background-color: #6BCBC6 !important;
+    background-image: url('/modules/Pokemon5e-styles/images/window-stripes-bg.png') !important;
+}
+
+.dnd5e.sheet.item .sheet-header .header-details {
+	background-color: #FFFBCE;
+	border-image: url('/modules/Pokemon5e-styles/images/border-interior.png') 10 fill round;
+	border-image-outset: 10px;
+    border-width: 10px;
+    border-style: solid;
+}
+
+.dnd5e.sheet.item .sheet-navigation {
+	background: #0078C0;
+}
+
+.dnd5e.sheet.item .sheet-navigation .item {
+    border-image: url('/modules/Pokemon5e-styles/images/tab-item-border-normal.png') 9 18 9 12 fill round !important;
+    box-shadow: none !important;
+    border-style: solid !important;
+    border-width: 9px 18px 9px 12px !important;
+    padding: 0px !important;
+    line-height: 10px !important;
+    height: 30px !important;
+    background-clip: padding-box !important;
+}
+
+.dnd5e.sheet.item .sheet-navigation .item.active {
+    border-image: url('/modules/Pokemon5e-styles/images/tab-item-border-active.png') 9 18 9 12 fill round !important;
+    box-shadow: none !important;
+    border-style: solid !important;
+    border-width: 9px 18px 9px 12px !important;
+    padding: 0px !important;
+    line-height: 10px !important;
+    height: 30px !important;
+    background-clip: padding-box !important;
+}
+
+.dnd5e.sheet.item .sheet-navigation .item:hover {
+    border-image: url('/modules/Pokemon5e-styles/images/tab-item-border-hover.png') 9 18 9 12 fill round !important;
+    box-shadow: none !important;
+    border-style: solid !important;
+    border-width: 9px 18px 9px 12px !important;
+    padding: 0px !important;
+    line-height: 10px !important;
+    height: 30px !important;
+    background-clip: padding-box !important;
+}
+
+.dnd5e.sheet.item .sheet-body {
+	background-color: #0078C0;
+    background-image: url('/modules/Pokemon5e-styles/images/window-stripes-bg.png');
+    padding-left: .25rem !important;
+}
+
+.dnd5e.sheet.item .sheet-body .item-properties {
+	border-right: none !important;
+	background-color: #F7CB73 !important;
+    background-clip: padding-box;
+    border-image: url('/modules/Pokemon5e-styles/images/border-left-tab.png') 10 fill round !important;
+    border-width: 10px !important;
+    border-style: solid !important;
+    box-shadow: none !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    flex: 0 0 130px !important;
+    height: fit-content;
+    z-index: 2;
+}
+
+.dnd5e.sheet.item .sheet-body .editor {
+	background-color: #FFFBCE !important;
+    background-clip: padding-box;
+    border-image: url('/modules/Pokemon5e-styles/images/border-interior.png') 10 fill round !important;
+    border-width: 10px !important;
+    border-style: solid !important;
+    padding-left: 10px !important;
+    box-shadow: none !important;
+    margin: 0px !important;
+    z-index: 1;
+    position: relative;
+    left: -10px;
+}
