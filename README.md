@@ -1,2 +1,2 @@
-# majors-minor-mods
-A module for FoundryVtt containing personal modifications and changes.
+# Pokemon5e - UI Styles
+Adds UI Styles based on the Pokémon Firered and Leafgreen games.
