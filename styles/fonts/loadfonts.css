@@ -1,0 +1,71 @@
+@font-face {
+    font-family: 'five_fonts_at_freddysregular';
+    src: url('FiveFontsatFreddys/fivefontsatfreddys-regular-webfont.eot');
+    src: url('FiveFontsatFreddys/fivefontsatfreddys-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('FiveFontsatFreddys/fivefontsatfreddys-regular-webfont.woff2') format('woff2'),
+         url('FiveFontsatFreddys/fivefontsatfreddys-regular-webfont.woff') format('woff'),
+         url('FiveFontsatFreddys/fivefontsatfreddys-regular-webfont.ttf') format('truetype'),
+         url('FiveFontsatFreddys/fivefontsatfreddys-regular-webfont.svg#five_fonts_at_freddysregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'forced_squaremedium';
+    src: url('ForcedSquare/forced_square-webfont.eot');
+    src: url('ForcedSquare/forced_square-webfont.eot?#iefix') format('embedded-opentype'),
+         url('ForcedSquare/forced_square-webfont.woff2') format('woff2'),
+         url('ForcedSquare/forced_square-webfont.woff') format('woff'),
+         url('ForcedSquare/forced_square-webfont.ttf') format('truetype'),
+         url('ForcedSquare/forced_square-webfont.svg#forced_squaremedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'minecraftiaregular';
+    src: url('Minecraftia/minecraftia-regular-webfont.eot');
+    src: url('Minecraftia/minecraftia-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Minecraftia/minecraftia-regular-webfont.woff2') format('woff2'),
+         url('Minecraftia/minecraftia-regular-webfont.woff') format('woff'),
+         url('Minecraftia/minecraftia-regular-webfont.ttf') format('truetype'),
+         url('Minecraftia/minecraftia-regular-webfont.svg#minecraftiaregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'pokemon_gbregular';
+    src: url('PokemonGB/pokemon_gb-webfont.eot');
+    src: url('PokemonGB/pokemon_gb-webfont.eot?#iefix') format('embedded-opentype'),
+         url('PokemonGB/pokemon_gb-webfont.woff2') format('woff2'),
+         url('PokemonGB/pokemon_gb-webfont.woff') format('woff'),
+         url('PokemonGB/pokemon_gb-webfont.ttf') format('truetype'),
+         url('PokemonGB/pokemon_gb-webfont.svg#pokemon_gbregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'squarefontregular';
+    src: url('Square/square-webfont.eot');
+    src: url('Square/square-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Square/square-webfont.woff2') format('woff2'),
+         url('Square/square-webfont.woff') format('woff'),
+         url('Square/square-webfont.ttf') format('truetype'),
+         url('Square/square-webfont.svg#squarefontregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'squarefont_outlineregular';
+    src: url('Square/squareo-webfont.eot');
+    src: url('Square/squareo-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Square/squareo-webfont.woff2') format('woff2'),
+         url('Square/squareo-webfont.woff') format('woff'),
+         url('Square/squareo-webfont.ttf') format('truetype'),
+         url('Square/squareo-webfont.svg#squarefont_outlineregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

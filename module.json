@@ -5,8 +5,8 @@
   "version": "0.1",
   "author": "MajorVictory",
   "scripts": [ "p5e-styles-scripts.js" ],
-  "styles": [ 
-    "styles/fonts/FiveFontsatFreddys/loadfont.css",
+  "styles": [
+    "styles/fonts/loadfonts.css",
     "styles/default/style.css"
   ],
   "esmodules": [],
