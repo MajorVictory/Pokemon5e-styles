@@ -364,6 +364,8 @@ section.token-mold span:not(.checkmark) {
     text-shadow: 2px 0px black, 2px 2px 2px black, 0px 2px black;
     font-family: forced_squaremedium, monospace;
     font-size: 23px;
+    letter-spacing: .05em;
+    word-spacing: 0.1em;
 }
 
 li.folder > .folder-header {
@@ -395,6 +397,8 @@ li.folder > .folder-header .create-entity {
     text-shadow: 2px 0px black, 2px 2px 2px black, 0px 2px black;
     font-family: forced_squaremedium, monospace;
     font-size: 20px;
+    letter-spacing: .05em;
+    word-spacing: 0.1em;
 }
 
 .sidebar-tab .directory-list .directory-item img { 
@@ -452,6 +456,37 @@ footer.compendium-footer > span:nth-child(2) {
 #chat-log {
 	background-color: #E0D898;
     border-bottom: 2px solid #C0B870;
+}
+
+#chat-log .message.whisper {
+    margin: 3px;
+    padding: 5px;
+    color: #191813;
+    font-size: 14px;
+    border-width: 16px;
+    border-style: solid;
+    border-image: url(/modules/Pokemon5e-styles/images/chatborders/02.png) 16 round;
+    border-image-repeat: round;
+    border-radius: 5px;
+    background-color: #c8abff !important;
+    background-clip: border-box;
+    margin: 2px;
+}
+
+#chat-log .message {
+    margin: 3px;
+    padding: 5px;
+    color: #191813;
+    font-size: 14px;
+    border-width: 16px;
+    border-style: solid;
+    border-image: url(/modules/Pokemon5e-styles/images/chatborders/02.png) 16 round;
+    border-image-repeat: round;
+    border-radius: 5px;
+    background-image: none !important;
+    background-color: #b5d1ff !important;
+    background-clip: border-box;
+    margin: 2px;
 }
 
 #chat-controls {
