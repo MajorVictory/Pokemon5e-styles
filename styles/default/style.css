@@ -483,24 +483,26 @@ li.folder > .folder-header h3 > i {
 }
 
 #combat #combat-tracker .combatant.actor {
+	position: relative;
 	background-image: 
 		url('/modules/Pokemon5e-styles/images/combat-entry-lcap-a.png'),
 		url('/modules/Pokemon5e-styles/images/combat-entry-rcap-a.png'),
 		url('/modules/Pokemon5e-styles/images/combat-entry-bg.png');
-    background-repeat: no-repeat, no-repeat, repeat-x;
+    background-repeat: no-repeat, no-repeat, no-repeat;
     background-position: left, right, center;
-    background-size: auto auto, auto auto, contain;
-    padding: 0px 28px 0px 26px;
-    background-clip: border-box,border-box,content-box;
+    background-size: auto auto, auto auto, calc(100% - 50px) 100%;
+    padding: 0px 55px 0px 7px;
+    background-clip: border-box,border-box,border-box,border-box,border-box;
     margin-bottom: 5px; 
     height: 55px;
 }
 
-#combat #combat-tracker .combatant.actor .token-image { 
+#combat #combat-tracker .combatant.actor .token-image {
+	position: relative;
+    top: 8px;
 	flex: 0 0 34px  !important;
     height: 34px  !important;
     width: 34px  !important;
-    top: 7px;
     background-color: #506858;
     border-radius: 5px;
 }
@@ -515,22 +517,15 @@ li.folder > .folder-header h3 > i {
     background-color: #710000;
 }
 
-#combat #combat-tracker .combatant.actor .token-image,
-#combat #combat-tracker .combatant.actor .token-name {
-    position: relative;
-    left: -19px;
-}
-
 #combat #combat-tracker .combatant.actor.active {
 	background-image: 
 		url('/modules/Pokemon5e-styles/images/combat-entry-lcap-b.png'),
 		url('/modules/Pokemon5e-styles/images/combat-entry-rcap-b.png'),
 		url('/modules/Pokemon5e-styles/images/combat-entry-bg.png');
-    padding: 0px 26px 0px 28px;
+    padding: 0px 40px 0px 23px;
 }
 
 #combat #combat-tracker .combatant.actor.active .token-name {
-	left: 0px;
 	line-height: 34px;
 }
 
@@ -538,10 +533,6 @@ li.folder > .folder-header h3 > i {
 	margin: 0px !important;
 	top: 5px;
     position: relative;
-}
-
-#combat #combat-tracker .combatant.actor.active .token-image { 
-    left: -5px;
 }
 
 #combat #combat-tracker .combatant.actor .token-name {
@@ -560,18 +551,27 @@ li.folder > .folder-header h3 > i {
     text-shadow: 2px 0px #D8D0B0, 2px 2px 2px #D8D0B0, 0px 2px #D8D0B0 !important;
 }
 
+#combat #combat-tracker .combatant.actor.active .token-initiative,
+#combat #combat-tracker .combatant.actor.active .token-resource { 
+    position: absolute;
+    right: 8px;
+    border: none;
+}
 #combat #combat-tracker .combatant.actor .token-initiative,
 #combat #combat-tracker .combatant.actor .token-resource { 
-    right: -12px;
-    position: relative;
+    position: absolute;
+    right: 24px;
     border: none;
 }
 
-#combat #combat-tracker .combatant.actor.active .token-initiative,
-#combat #combat-tracker .combatant.actor.active .token-resource {
-	right: -26px;
-    position: relative;
+#combat li.combatant .token-resource {
+    bottom: -5px;
 }
+
+#combat li.combatant .token-initiative {
+    top: -10px;
+}
+
 
 #combat #combat-tracker .combatant .token-name .combatant-control {
 	font-family: none !important;
@@ -581,7 +581,10 @@ li.folder > .folder-header h3 > i {
 	color: #710000 !important;
 }
 
-#combat #combat-tracker .combatant.actor .token-initiative .roll { 
+#combat #combat-tracker .combatant.actor .token-initiative .roll {
+    position: absolute; 
+	top: 10px;
+    right: -8px;
 	width: 36px;
     height: 48px;
     background: url('/modules/Pokemon5e-styles/images/initiative.png') no-repeat 50% 50%;
@@ -920,7 +923,7 @@ footer.compendium-footer > span:nth-child(2) {
     border-image-outset: 10px !important;
     border-width: 10px !important;
     border-style: solid !important;
-    margin: 15px !important;
+    margin: 10px 10px 15px 10px !important;
     padding: 0px !important;
 }
 
@@ -960,17 +963,20 @@ hr {
 /* ********************* dnd5e Specific Styles */
 /* ******************************************* */
 
-.dnd5e.sheet.item .sheet-header {
-    background-color: #6BCBC6 !important;
-    background-image: url('/modules/Pokemon5e-styles/images/window-stripes-bg.png') !important;
-    margin: 0px;
+.dnd5e.sheet .sheet-header img.profile {
+	background: #68C0C8 !important;
+    border: 4px outset #004890 !important;
 }
 
-.dnd5e.sheet.item .sheet-navigation {
-	background: #0078C0;
+.dnd5e.sheet .sheet-navigation {
+	border-image: url(/modules/Pokemon5e-styles/images/border-header.png) 6 repeat;
+    border-width: 6px;
+    border-style: solid;
+    background-color: #0079C6;
+    margin: 0px !important;
 }
 
-.dnd5e.sheet.item .sheet-navigation .item {
+.dnd5e.sheet .sheet-navigation .item {
     border-image: url('/modules/Pokemon5e-styles/images/tab-item-border-normal.png') 9 18 9 12 fill round !important;
     box-shadow: none !important;
     border-style: solid !important;
@@ -979,9 +985,10 @@ hr {
     line-height: 10px !important;
     height: 30px !important;
     background-clip: padding-box !important;
+    min-width: 100px;
 }
 
-.dnd5e.sheet.item .sheet-navigation .item.active {
+.dnd5e.sheet .sheet-navigation .item.active {
     border-image: url('/modules/Pokemon5e-styles/images/tab-item-border-active.png') 9 18 9 12 fill round !important;
     box-shadow: none !important;
     border-style: solid !important;
@@ -992,7 +999,7 @@ hr {
     background-clip: padding-box !important;
 }
 
-.dnd5e.sheet.item .sheet-navigation .item:hover {
+.dnd5e.sheet .sheet-navigation .item:hover {
     border-image: url('/modules/Pokemon5e-styles/images/tab-item-border-hover.png') 9 18 9 12 fill round !important;
     box-shadow: none !important;
     border-style: solid !important;
