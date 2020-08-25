@@ -5,90 +5,85 @@
 /* ******************************************* */
 
 #controls {
-    background-color: #BFB7AF;
-    border-image: url('/modules/Pokemon5e-styles/images/border-button.png') 21 20 20 19 fill round;
-    border-width: 21px 20px 20px 19px;
-    border-style: solid;
-    padding: 0px !important;
     top: 60px !important;
+    min-width: 75px;
+    image-rendering: pixelated;
+    background-image: 
+    	url('/modules/Pokemon5e-styles/images/controls-main-bg-top.png'),
+    	url('/modules/Pokemon5e-styles/images/controls-main-bg-bottom.png'),
+    	url('/modules/Pokemon5e-styles/images/controls-main-bg.png');
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-position: top center, bottom center, center center;
+    border-radius: 0px;
+    padding: 35px 18px 35px 7px;
+    background-size: contain, contain, 100% calc(100% - 60px);
+}
+
+#controls .control-tools {
+    left: 70px !important;
+    top: 20px !important;
+    min-width: 75px;
+    margin: 0;
+    image-rendering: pixelated;
+    background-image: 
+    	url('/modules/Pokemon5e-styles/images/controls-sub-bg-top.png'),
+    	url('/modules/Pokemon5e-styles/images/controls-sub-bg-bottom.png'),
+    	url('/modules/Pokemon5e-styles/images/controls-sub-bg.png');
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-position: top center, bottom center, center center;
+    border-radius: 0px;
+    padding: 23px 0px 23px 10px;
+    background-size: contain, contain, 100% calc(100% - 40px);
 }
 
 #controls .scene-control,
-#controls .control-tool {
-    width: 26px !important;
-    height: 26px !important;
+#controls .control-tool,
+#controls .control-tool.toggle {
+    width: 40px !important;
+    height: 44px !important;
     box-sizing: content-box;
-    line-height: 26px !important;
+    line-height: 44px !important;
     box-shadow: none !important;
     margin: 0 0 4px;
     cursor: pointer;
     color: white !important;
-    background: rgb(56,144,216);
-	background: linear-gradient(0deg, rgba(56,144,216,1) 30%, rgba(128,192,216,1) 60%); 
-	background-origin: border-box;
-    border-image: url('/modules/Pokemon5e-styles/images/border-control-button.png') 12 fill round !important;
-    border-width: 12px !important;
-    border-style: solid !important;
-    background-clip: border-box !important;
-    border-radius: 25px !important;
     text-shadow: 2px 0px black, 2px 2px 2px black, 0px 2px black;
+    background: none;
+    background-image: url('/modules/Pokemon5e-styles/images/controls-main-button-bg.png');
+    background-size: contain;
+    border-radius: 0px;
+    border: none;
+}
+
+#controls .scene-control i,
+#controls .control-tool i {
+	text-align: center;
+    width: 1.5em;
+    font-size: 0.8em;
 }
 
 #controls .scene-control i::before,
 #controls .control-tool i::before {
-	text-align: center;
-    width: 1.25em;
-    font-size: 0.9em;
     position: relative;
     left: -1px;
-    top: -1px;
+    top: -2px;
 }
+
 
 #controls .scene-control.active,
 #controls .control-tool.active,
 #controls .scene-control:hover,
 #controls .control-tool:hover {
-	width: 26px !important;
-    height: 26px !important;
-    box-sizing: content-box;
-    line-height: 26px !important;
-    box-shadow: none !important;
-    margin: 0 0 4px;
-    cursor: pointer;
+    background-image: url('/modules/Pokemon5e-styles/images/controls-main-button-bg-select.png');
     color: white !important;
-    background: rgb(120,208,232);
-	background: linear-gradient(0deg, rgba(120,208,232,1) 30%, rgba(168,232,248,1) 60%); 
-	background-origin: border-box;
-    border-image: url('/modules/Pokemon5e-styles/images/border-control-button-select.png') 12 fill round !important;
-    border-width: 12px !important;
-    border-style: solid !important;
-    background-clip: border-box !important;
-    border-radius: 25px !important;
-    text-shadow: 2px 0px black, 2px 2px 2px black, 0px 2px black;
+    border: none;
 }
 
-#controls .control-tool.toggle { 
-	background: rgb(95,50,207);
-	background: linear-gradient(0deg, rgba(95,50,207,1) 30%, rgba(145,120,212,1) 60%);  
-	background-origin: border-box;
-}
-
-#controls .control-tool.toggle.active, #controls .control-tool.toggle:hover {   
-	background: rgb(59,24,147);
-	background: linear-gradient(0deg, rgba(59,24,147,1) 30%, rgba(112,88,176,1) 60%);
-	background-origin: border-box;
-	color: #F87030 !important;
-}
-
-#controls .control-tools {
-    margin: 0;
-    padding: 0px 0px 0px 5px !important;
-    left: 70px !important;
-    top: -15px !important;
-    border-image: url('/modules/Pokemon5e-styles/images/border-button-sub.png') 14 14 13 12 fill stretch !important;
-    border-width: 14px 14px 13px 12px !important;
-    border-style: solid !important;
-    border-image-outset: 14px 14px 13px 12px;
+#controls .control-tool.toggle.active, #controls .control-tool.toggle:hover {
+	background: none;
+    background-image: url('/modules/Pokemon5e-styles/images/controls-main-button-bg-toggle.png');
+    color: white !important;
+    border: none;
 }
 
 
