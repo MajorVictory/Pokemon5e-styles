@@ -1,4 +1,17 @@
 
+:root {
+	--border-hotbar-01: url('/modules/Pokemon5e-styles/images/border-hotbar-01.png') 12 round;
+	--border-hotbar-02: url('/modules/Pokemon5e-styles/images/border-hotbar-02.png') 12 round;
+	--border-hotbar-03: url('/modules/Pokemon5e-styles/images/border-hotbar-03.png') 12 round;
+	--border-hotbar-04: url('/modules/Pokemon5e-styles/images/border-hotbar-04.png') 12 round;
+	--border-hotbar-05: url('/modules/Pokemon5e-styles/images/border-hotbar-05.png') 12 round;
+
+	--p5e-primary-background-color: #FFFBCEFF;
+	--p5e-chatborder-public: url('/modules/Pokemon5e-styles/images/border-hotbar-01.png') 16 round;
+	--p5e-chatborder-whisper: url('/modules/Pokemon5e-styles/images/border-hotbar-01.png') 16 round;
+	--p5e-chatborder-blind: url('/modules/Pokemon5e-styles/images/border-hotbar-01.png') 16 round;
+	--p5e-pokedex-color: #FF0000FF;
+}
 
 /* ******************************************* */
 /* ***************** left side button controls */
@@ -16,13 +29,15 @@
     background-position: top center, bottom center, center center;
     border-radius: 0px;
     padding: 35px 18px 35px 7px;
-    background-size: contain, contain, 100% calc(100% - 60px);
+    background-size: contain, contain, 100% calc(100% - 70px);
+    background-color: var(--p5e-pokedex-color);
 }
 
 #controls .control-tools {
     left: 70px !important;
     top: 20px !important;
-    min-width: 75px;
+    min-width: 68px;
+    max-width: 68px
     margin: 0;
     image-rendering: pixelated;
     background-image: 
@@ -30,10 +45,18 @@
     	url('/modules/Pokemon5e-styles/images/controls-sub-bg-bottom.png'),
     	url('/modules/Pokemon5e-styles/images/controls-sub-bg.png');
     background-repeat: no-repeat, no-repeat, no-repeat;
-    background-position: top center, bottom center, center center;
+    background-position: top center, bottom center, center 22px;
     border-radius: 0px;
-    padding: 23px 0px 23px 10px;
-    background-size: contain, contain, 100% calc(100% - 40px);
+    padding: 22px 0px 17px 10px;
+    background-size: contain, contain, 100% calc(100% - 39px);
+    background-color: var(--p5e-pokedex-color);
+    -webkit-mask-image: 
+    	url(/modules/Pokemon5e-styles/images/controls-sub-bg-top-mask.png),
+    	url(/modules/Pokemon5e-styles/images/controls-sub-bg-bottom-mask.png),
+    	url(/modules/Pokemon5e-styles/images/controls-sub-bg-mask.png);
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: top center, bottom center, center 22px;
+    -webkit-mask-size: contain, contain, 100% calc(100% - 39px);
 }
 
 #controls .scene-control,
@@ -134,7 +157,9 @@
 	line-height: 0px !important;
 }
 
-#navigation #scene-list .scene.nav-item.active, #navigation #scene-list .scene.nav-item:hover {
+#navigation #nav-toggle:hover,
+#navigation #scene-list .scene.nav-item.active,
+#navigation #scene-list .scene.nav-item:hover {
 	border-image: url('/modules/Pokemon5e-styles/images/border-scene-button-select.png') 6 fill stretch !important;
 	background: 
 		url('/modules/Pokemon5e-styles/images/scene-button-bg-select.png'),
@@ -369,35 +394,35 @@ li.folder > .folder-header h3 > i {
 /* *************** Chat */
 /* ******************** */
 
-#chat-log .message.whisper {
-    margin: 3px;
-    padding: 5px;
-    color: #191813;
-    font-size: 14px;
-    border-width: 16px;
-    border-style: solid;
-    border-image: url('/modules/Pokemon5e-styles/images/chatborders/01.png') 16 round;
-    border-image-repeat: round;
-    border-radius: 5px;
-    background-color: #e0d0ff !important;
-    background-clip: border-box;
-    margin: 2px;
-}
 
 #chat-log .message {
-    margin: 3px;
+    margin: 2px;
     padding: 5px;
-    color: #191813;
-    font-size: 14px;
+    border-image: var(--p5e-chatborder-public);
     border-width: 16px;
     border-style: solid;
-    border-image: url('/modules/Pokemon5e-styles/images/chatborders/01.png') 16 round;
-    border-image-repeat: round;
     border-radius: 5px;
     background-image: none !important;
-    background-color: #fff !important;
+    background-color: var(--p5e-primary-background-color) !important;
     background-clip: border-box;
-    margin: 2px;
+    color: #191813;
+    font-size: 14px;
+}
+
+#chat-log .message.whisper {
+    border-image: var(--p5e-chatborder-whisper);
+    background-color: #e0d0ff !important;
+    border-width: 16px !important;
+    border-style: solid !important;
+    border-radius: 5px !important;
+}
+
+#chat-log .message.whisper.blind {
+    border-image: var(--p5e-chatborder-blind);
+    background-color: #e0d0ff !important;
+    border-width: 16px !important;
+    border-style: solid !important;
+    border-radius: 5px !important;
 }
 
 #chat-controls {
@@ -698,23 +723,26 @@ footer.compendium-footer > span:nth-child(2) {
 /* ******************************************* */
 
 #players {
-	background-image: url('/modules/Pokemon5e-styles/images/blue-dark-bg.png') !important;
-    border-image: url('/modules/Pokemon5e-styles/images/border-interior.png') 10 round;
-    border-width: 10px;
+    background-color: #B7E0BF;
+	border-image: url('/modules/Pokemon5e-styles/images/border-hotbar.png') 12 round;
+    border-image-outset: 0px;
+    border-radius: 10px;
+    border-width: 12px;
     border-style: solid;
-    border-radius: 15px;
     box-shadow: none !important;
 }
 
 #players h3 {
 	height: 30px;
-	box-sizing: border-box;
+    box-sizing: border-box;
     margin: 0px !important;
-    border-bottom: none !important;
+    border-bottom: 2px solid #577F4F;
     box-shadow: none !important;
-    background-image: url('/modules/Pokemon5e-styles/images/dialog-header-bg.png');
-    background-size: contain;
-    background-repeat: repeat-x;
+    background: url(/modules/Pokemon5e-styles/images/players-header-bg.png), linear-gradient(0deg, #B7E0BF 40%, #7FA777 40%);
+    background-position: left 70%, center center !important;
+    background-repeat: repeat-x !important;
+    background-clip: padding-box !important;
+    line-height: 22px;
     font-family: five_fonts_at_freddysregular, monospace;
     font-size: 1em;
     letter-spacing: .1em;
@@ -726,6 +754,12 @@ footer.compendium-footer > span:nth-child(2) {
 	margin: 0px !important;
 	position: relative;
 	top: -10px;
+}
+
+#players #player-list {
+    margin: 0px;
+    padding: 0;
+    background-color: #577F4F;
 }
 
 #players #player-list .player {
@@ -753,7 +787,7 @@ footer.compendium-footer > span:nth-child(2) {
 
 #hotbar {
 	height: 52px;
-    bottom: 30px;
+    bottom: 37px;
     width: 650px;
 }
 
@@ -775,7 +809,7 @@ footer.compendium-footer > span:nth-child(2) {
 #hotbar #action-bar #macro-list {
     box-sizing: content-box;
 	background-image: url('/modules/Pokemon5e-styles/images/hotbar-bg-01.png');
-	border-image: url('/modules/Pokemon5e-styles/images/border-hotbar-01.png') 12 round;
+	border-image: var(--border-hotbar-01);
     border-image-outset: 0px;
     border-radius: 10px;
     border-width: 12px;
@@ -879,7 +913,7 @@ footer.compendium-footer > span:nth-child(2) {
 
 .window-app .window-content {
 	background-image: none !important;
-	background-color: #FFFBCE !important;
+	background-color: var(--p5e-primary-background-color) !important;
 }
 
 /* generic pokeball bg */
@@ -1045,6 +1079,15 @@ hr {
     left: -10px;
 }
 
+.dnd5e.sheet.actor .editor {
+    padding: 0px;
+	border-image: url(/modules/Pokemon5e-styles/images/border-textbox-big.png) 26 22 round !important;
+    border-width: 26px 22px !important;
+    border-style: solid !important;
+    background-clip: content-box;
+    background-color: #F8F8F8;
+}
+
 .dnd5e.sheet.item .sheet-body .tab.details, .dnd5e.sheet.item .sheet-body .tab.dynamiceffects,
 .dnd5e.sheet.item .sheet-body .tab.item-betterRolls, .dnd5e.sheet.item .sheet-body .tab.itemcollection-details {
 	background-color: #FFFBCE !important;
@@ -1052,6 +1095,20 @@ hr {
     border-image: url('/modules/Pokemon5e-styles/images/border-interior.png') 10 fill round !important;
     border-width: 10px !important;
     border-style: solid !important;
+}
+
+
+
+
+.dnd5e.sheet input[type="text"]:hover, .dnd5e.sheet input[type="text"]:focus {
+	border: 2px solid #687078;
+    box-shadow: inset 4px 0px 3px 1px #C8C8D8, inset -4px 0px 3px 1px #C8C8D8;
+    border-radius: 3px;
+}
+
+/* character sheet - long rest and short rest buttons */
+.dnd5e.sheet.actor ul.attributes li.attribute .attribute-footer {
+    font-size: 11px !important;
 }
 
 
