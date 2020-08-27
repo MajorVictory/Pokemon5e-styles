@@ -1,0 +1,90 @@
+<div class="tab active" data-tab="general">
+    <form autocomplete="off" class="Pokemon5e-styles">
+
+        <div class="form-group">
+            <label>{{localize "P5ESTYLES.PokedexColor"}}</label>
+            <div class="form-fields" style="flex-direction: column;">
+                <select name="pokedexColorPreset">
+                    <option value="custom">{{localize "P5ESTYLES.ColorOptionCustom"}}</option>
+                    {{#select pokedexColorPreset}}
+                    {{#each pokedexPresets as |name key|}}
+                    <option value="{{key}}">{{name}}</option>
+                    {{/each}}
+                    {{/select}}
+                </select>
+                <div class="flexrow" style="margin-top: 5px;">
+                    <input type="text" name="pokedexColor" value="{{pokedexColor}}" data-dtype="String"/>
+                    <input type="color" name="pokedexColorSelector" value="{{pokedexColor}}" data-edit="pokedexColor"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>{{localize "P5ESTYLES.SheetBackgroundColor"}}</label>
+            <div class="form-fields" style="flex-direction: column;">
+                <select name="sheetBackgroundColorPreset">
+                    <option value="custom">{{localize "P5ESTYLES.ColorOptionCustom"}}</option>
+                    {{#select sheetBackgroundColorPreset}}
+                    {{#each sheetColorPresets as |name key|}}
+                    <option value="{{key}}">{{name}}</option>
+                    {{/each}}
+                    {{/select}}
+                </select>
+                <div class="flexrow" style="margin-top: 5px;">
+                    <input type="text" name="sheetBackgroundColor" value="{{sheetBackgroundColor}}" data-dtype="String"/>
+                    <input type="color" name="sheetBackgroundColorSelector" value="{{sheetBackgroundColor}}" data-edit="sheetBackgroundColor"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>{{localize "P5ESTYLES.ChatBorderPublic"}}</label>
+            <select name="chatBorderPublic" style="flex: 1;">
+                {{#select chatBorderPublic}}
+                {{#each chatBorders as |name key|}}
+                <option value="{{key}}">{{name}}</option>
+                {{/each}}
+                {{/select}}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>{{localize "P5ESTYLES.ChatBorderWhisper"}}</label>
+            <select name="chatBorderWhisper" style="flex: 1;">
+                {{#select chatBorderWhisper}}
+                {{#each chatBorders as |name key|}}
+                <option value="{{key}}">{{name}}</option>
+                {{/each}}
+                {{/select}}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>{{localize "P5ESTYLES.ChatBorderBlind"}}</label>
+            <select name="chatBorderBlind" style="flex: 1;">
+                {{#select chatBorderBlind}}
+                {{#each chatBorders as |name key|}}
+                <option value="{{key}}">{{name}}</option>
+                {{/each}}
+                {{/select}}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label style="flex: 0 0 100%;">{{localize "P5ESTYLES.ChatBordersReference"}}</label>
+            <img style="flex: none;border:none;" src="/modules/Pokemon5e-styles/images/chatborders.png"/>
+        </div>
+
+        <!-- Settings Footer -->
+        <footer class="sheet-footer flexrow">
+            <button type="submit" name="submit">
+                <i class="far fa-save"></i> {{localize 'SETTINGS.Save'}}
+            </button>
+            <button type="button" name="reset">
+                <i class="fas fa-undo"></i> {{localize 'SETTINGS.Reset'}}
+            </button>
+        </footer>
+
+    </form>
+
+</div>

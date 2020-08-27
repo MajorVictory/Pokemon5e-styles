@@ -1,0 +1,22 @@
+{
+    "P5ESTYLES.Config": "Pokemon UI Style Options",
+    "P5ESTYLES.ConfigTitle": "Pokemon UI Style Options",
+    "P5ESTYLES.ConfigHint": "Customize theme colors and settings.",
+
+    "P5ESTYLES.InvalidColorFormat": "Invalid Color Format! Must be in hexadecimal format '#rrggbb'",
+
+    "P5ESTYLES.PokedexColor": "Pokédex Color",
+    "P5ESTYLES.SheetBackgroundColor": "Sheet Background Color",
+    
+    "P5ESTYLES.ColorOptionCustom": "Custom Color",
+
+    "P5ESTYLES.ChatBordersReference": "Chat Border Style Reference",
+    "P5ESTYLES.ChatBorderPublic": "Chat Border - Public",
+    "P5ESTYLES.ChatBorderWhisper": "Chat Border - Whisper",
+    "P5ESTYLES.ChatBorderBlind": "Chat Border - Blind",
+
+
+    "P5ESTYLES.Reset": "Reset",
+    "P5ESTYLES.Save": "Save",
+    "P5ESTYLES.SaveMessage": "Style Settings Applied"
+}
