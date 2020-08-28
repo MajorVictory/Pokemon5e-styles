@@ -38,36 +38,87 @@
         </div>
 
         <div class="form-group">
-            <label>{{localize "P5ESTYLES.ChatBorderPublic"}}</label>
-            <select name="chatBorderPublic" style="flex: 1;">
-                {{#select chatBorderPublic}}
-                {{#each chatBorders as |name key|}}
-                <option value="{{key}}">{{name}}</option>
-                {{/each}}
-                {{/select}}
-            </select>
+            <div class="form-fields" style="flex-direction: column;">
+                <label>{{localize "P5ESTYLES.ChatBoxPublic"}}</label>
+                <p class="note">{{localize "P5ESTYLES.ChatBoxPublicHint"}}</p>
+            </div>
+            <div class="form-fields" style="flex-direction: column;">
+                <select name="ChatBoxPublicBackgroundColorPreset">
+                    <option value="custom">{{localize "P5ESTYLES.ColorOptionCustom"}}</option>
+                    {{#select ChatBoxPublicBackgroundColorPreset}}
+                    {{#each sheetColorPresets as |name key|}}
+                    <option value="{{key}}">{{name}}</option>
+                    {{/each}}
+                    {{/select}}
+                </select>
+                <div class="flexrow" style="margin-top: 5px;">
+                    <input type="text" name="ChatBoxPublicBackgroundColor" value="{{ChatBoxPublicBackgroundColor}}" data-dtype="String"/>
+                    <input type="color" name="ChatBoxPublicBackgroundColorSelector" value="{{ChatBoxPublicBackgroundColor}}" data-edit="ChatBoxPublicBackgroundColor"/>
+                </div>
+                <select name="ChatBoxPublicBorder" style="margin-top: 5px;">
+                    {{#select ChatBoxPublicBorder}}
+                    {{#each chatBorders as |name key|}}
+                    <option value="{{key}}">{{name}}</option>
+                    {{/each}}
+                    {{/select}}
+                </select>
+            </div>
         </div>
 
         <div class="form-group">
-            <label>{{localize "P5ESTYLES.ChatBorderWhisper"}}</label>
-            <select name="chatBorderWhisper" style="flex: 1;">
-                {{#select chatBorderWhisper}}
-                {{#each chatBorders as |name key|}}
-                <option value="{{key}}">{{name}}</option>
-                {{/each}}
-                {{/select}}
-            </select>
+            <div class="form-fields" style="flex-direction: column;">
+                <label>{{localize "P5ESTYLES.ChatBoxWhisper"}}</label>
+                <p class="note">{{localize "P5ESTYLES.ChatBoxWhisperHint"}}</p>
+            </div>
+            <div class="form-fields" style="flex-direction: column;">
+                <select name="ChatBoxWhisperBackgroundColorPreset">
+                    <option value="custom">{{localize "P5ESTYLES.ColorOptionCustom"}}</option>
+                    {{#select ChatBoxWhisperBackgroundColorPreset}}
+                    {{#each sheetColorPresets as |name key|}}
+                    <option value="{{key}}">{{name}}</option>
+                    {{/each}}
+                    {{/select}}
+                </select>
+                <div class="flexrow" style="margin-top: 5px;">
+                    <input type="text" name="ChatBoxWhisperBackgroundColor" value="{{ChatBoxWhisperBackgroundColor}}" data-dtype="String"/>
+                    <input type="color" name="ChatBoxWhisperBackgroundColorSelector" value="{{ChatBoxWhisperBackgroundColor}}" data-edit="ChatBoxWhisperBackgroundColor"/>
+                </div>
+                <select name="ChatBoxWhisperBorder" style="margin-top: 5px;">
+                    {{#select ChatBoxWhisperBorder}}
+                    {{#each chatBorders as |name key|}}
+                    <option value="{{key}}">{{name}}</option>
+                    {{/each}}
+                    {{/select}}
+                </select>
+            </div>
         </div>
 
         <div class="form-group">
-            <label>{{localize "P5ESTYLES.ChatBorderBlind"}}</label>
-            <select name="chatBorderBlind" style="flex: 1;">
-                {{#select chatBorderBlind}}
-                {{#each chatBorders as |name key|}}
-                <option value="{{key}}">{{name}}</option>
-                {{/each}}
-                {{/select}}
-            </select>
+            <div class="form-fields" style="flex-direction: column;">
+                <label>{{localize "P5ESTYLES.ChatBoxBlind"}}</label>
+                <p class="note">{{localize "P5ESTYLES.ChatBoxBlindHint"}}</p>
+            </div>
+            <div class="form-fields" style="flex-direction: column;">
+                <select name="ChatBoxBlindBackgroundColorPreset">
+                    <option value="custom">{{localize "P5ESTYLES.ColorOptionCustom"}}</option>
+                    {{#select ChatBoxBlindBackgroundColorPreset}}
+                    {{#each sheetColorPresets as |name key|}}
+                    <option value="{{key}}">{{name}}</option>
+                    {{/each}}
+                    {{/select}}
+                </select>
+                <div class="flexrow" style="margin-top: 5px;">
+                    <input type="text" name="ChatBoxBlindBackgroundColor" value="{{ChatBoxBlindBackgroundColor}}" data-dtype="String"/>
+                    <input type="color" name="ChatBoxBlindBackgroundColorSelector" value="{{ChatBoxBlindBackgroundColor}}" data-edit="ChatBoxBlindBackgroundColor"/>
+                </div>
+                <select name="ChatBoxBlindBorder" style="margin-top: 5px;">
+                    {{#select ChatBoxBlindBorder}}
+                    {{#each chatBorders as |name key|}}
+                    <option value="{{key}}">{{name}}</option>
+                    {{/each}}
+                    {{/select}}
+                </select>
+            </div>
         </div>
 
         <div class="form-group">

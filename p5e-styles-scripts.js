@@ -14,7 +14,7 @@ Hooks.once('init', () => {
         name: game.i18n.localize("P5ESTYLES.Config"),
         label: game.i18n.localize("P5ESTYLES.ConfigTitle"),
         hint: game.i18n.localize("P5ESTYLES.ConfigHint"),
-        icon: "fas fa-dice-d20",
+        icon: "fas fa-paint-brush",
         type: PokemonStylesConfigDialog,
         restricted: false
     });
@@ -77,49 +77,54 @@ export class PokemonStylesConfig {
 			},
     		sheetColorPresets: {
 				"#fffbce": "Tan (Default)",
-	        	"#58d0d0": "Trainer Blue",
-	        	"#b088d0": "Trainer Purple",
+	        	"#ff6868": "Trainer Red",
+	        	"#dc8161": "Magikarp Red",
 	        	"#f0b850": "Pikachu Yellow",
 	        	"#68c098": "Misty's Green Eyes",
-	        	"#e08868": "Salmon isn't a Color"
+				"#9fd271": "Caterpie Green",
+	        	"#58d0d0": "Trainer Blue",
+	        	"#b088d0": "Trainer Purple",
+				"#eee6dd": "Chancey Shell White"
 			},
     		chatBorders: {
-				"01": "#01",
-		        "02": "#02",
-		        "03": "#03",
-		        "04": "#04",
-		        "05": "#05",
-		        "06": "#06",
-		        "07": "#07",
-				"08": "#08",
-		        "09": "#09",
-		        "10": "#10",
-		        "11": "#11",
-		        "12": "#12",
-		        "13": "#13",
-		        "14": "#14",
-				"15": "#15",
-		        "16": "#16",
-		        "17": "#17",
-		        "18": "#18",
-		        "19": "#19",
-		        "20": "#20",
-		        "21": "#21",
-		        "22": "#22",
-		        "23": "#23",
-		        "24": "#24",
-		        "25": "#25",
-		        "26": "#26",
-		        "27": "#27",
-		        "28": "#28",
-		        "29": "#29"
+				"01": "Chat Border #01",
+		        "02": "Chat Border #02",
+		        "03": "Chat Border #03",
+		        "04": "Chat Border #04",
+		        "05": "Chat Border #05",
+		        "06": "Chat Border #06",
+		        "07": "Chat Border #07",
+				"08": "Chat Border #08",
+		        "09": "Chat Border #09",
+		        "10": "Chat Border #10",
+		        "11": "Chat Border #11",
+		        "12": "Chat Border #12",
+		        "13": "Chat Border #13",
+		        "14": "Chat Border #14",
+				"15": "Chat Border #15",
+		        "16": "Chat Border #16",
+		        "17": "Chat Border #17",
+		        "18": "Chat Border #18",
+		        "19": "Chat Border #19",
+		        "20": "Chat Border #20",
+		        "21": "Chat Border #21",
+		        "22": "Chat Border #22",
+		        "23": "Chat Border #23",
+		        "24": "Chat Border #24",
+		        "25": "Chat Border #25",
+		        "26": "Chat Border #26",
+		        "27": "Chat Border #27",
+		        "28": "Chat Border #28",
+		        "29": "Chat Border #29"
 			},
-    		chatBorderPublic: '01',
-    		chatBorderWhisper: '02',
-    		chatBorderBlind: '03',
-    		pokedexColor: '#ff0000',
-	    	pokedexColorPreset: '#ff0000',
-    		sheetBackgroundColor: '#fffbce'
+    		pokedexColor: '#f20c32',
+	    	sheetBackgroundColor: '#fffbce',
+    		ChatBoxPublicBackgroundColor: '#58d0d0',
+    		ChatBoxPublicBorder: '21',
+    		ChatBoxWhisperBackgroundColor: '#b088d0',
+    		ChatBoxWhisperBorder: '03',
+    		ChatBoxBlindBackgroundColor: '#e08868',
+    		ChatBoxBlindBorder: '11'
     	};
 	}
 
@@ -132,9 +137,13 @@ export class PokemonStylesConfig {
 		document.documentElement.style.setProperty('--p5e-pokedex-color', options.pokedexColor);
 		document.documentElement.style.setProperty('--p5e-primary-background-color', options.sheetBackgroundColor);
 
-		document.documentElement.style.setProperty('--p5e-chatborder-public', p5eGetBGData(options.chatBorderPublic));
-		document.documentElement.style.setProperty('--p5e-chatborder-whisper', p5eGetBGData(options.chatBorderWhisper));
-		document.documentElement.style.setProperty('--p5e-chatborder-blind', p5eGetBGData(options.chatBorderBlind));
+		document.documentElement.style.setProperty('--p5e-chatborder-public', p5eGetBGData(options.ChatBoxPublicBorder));
+		document.documentElement.style.setProperty('--p5e-chatborder-whisper', p5eGetBGData(options.ChatBoxWhisperBorder));
+		document.documentElement.style.setProperty('--p5e-chatborder-blind', p5eGetBGData(options.ChatBoxBlindBorder));
+
+		document.documentElement.style.setProperty('--p5e-background-color-public', options.ChatBoxPublicBackgroundColor);
+		document.documentElement.style.setProperty('--p5e-background-color-whisper', options.ChatBoxWhisperBackgroundColor);
+		document.documentElement.style.setProperty('--p5e-background-color-blind', options.ChatBoxBlindBackgroundColor);
 	}
 }
 
@@ -146,9 +155,9 @@ class PokemonStylesConfigDialog extends FormApplication {
             id: "Pokemon5e-styles-config",
             template: "modules/Pokemon5e-styles/templates/settings.html",
             width: 510,
-            height: 641,
+            height: 795,
             closeOnSubmit: true
-        })
+        });
     }
 
     getData(options) {
@@ -162,8 +171,14 @@ class PokemonStylesConfigDialog extends FormApplication {
         super.activateListeners(html);
         html.find('select[name="pokedexColorPreset"],input[name="pokedexColor"],input[name="pokedexColorSelector"]').change(this.updateColor.bind(this));
         html.find('select[name="sheetBackgroundColorPreset"],input[name="sheetBackgroundColor"],input[name="sheetBackgroundColorSelector"]').change(this.updateColor.bind(this));
+        html.find('select[name="ChatBoxPublicBackgroundColorPreset"],input[name="ChatBoxPublicBackgroundColor"],input[name="ChatBoxPublicBackgroundColorSelector"]').change(this.updateColor.bind(this));
+        html.find('select[name="ChatBoxWhisperBackgroundColorPreset"],input[name="ChatBoxWhisperBackgroundColor"],input[name="ChatBoxWhisperBackgroundColorSelector"]').change(this.updateColor.bind(this));
+        html.find('select[name="ChatBoxBlindBackgroundColorPreset"],input[name="ChatBoxBlindBackgroundColor"],input[name="ChatBoxBlindBackgroundColorSelector"]').change(this.updateColor.bind(this));
         html.find('input,select').change(this.onApply.bind(this));
         html.find('button[name="reset"]').click(this.onReset.bind(this));
+
+        $('input[name="pokedexColor"], input[name="sheetBackgroundColor"], input[name="ChatBoxPublicBackgroundColor"], input[name="ChatBoxWhisperBackgroundColor"], input[name="ChatBoxBlindBackgroundColor"]').change();
+
         this.reset = false;
     }
 
@@ -172,7 +187,8 @@ class PokemonStylesConfigDialog extends FormApplication {
     	let control = $(event.target);
 
     	// validate manual color
-    	if (['pokedexColor','sheetBackgroundColor'].includes(control.prop('name'))) {
+    	if (['pokedexColor','sheetBackgroundColor','ChatBoxPublicBackgroundColor',
+    		'ChatBoxWhisperBackgroundColor', 'ChatBoxBlindBackgroundColor'].includes(control.prop('name'))) {
 
     		let colortest = /^#[0-9A-F]{6}$/i.test(control.val());
 
@@ -184,7 +200,10 @@ class PokemonStylesConfigDialog extends FormApplication {
 
     	let colorgroups = [
     		['pokedexColorPreset', 'pokedexColor', 'pokedexColorSelector'],
-    		['sheetBackgroundColorPreset', 'sheetBackgroundColor', 'sheetBackgroundColorSelector']
+    		['sheetBackgroundColorPreset', 'sheetBackgroundColor', 'sheetBackgroundColorSelector'],
+    		['ChatBoxPublicBackgroundColorPreset', 'ChatBoxPublicBackgroundColor', 'ChatBoxPublicBackgroundColorSelector'],
+    		['ChatBoxWhisperBackgroundColorPreset', 'ChatBoxWhisperBackgroundColor', 'ChatBoxWhisperBackgroundColorSelector'],
+    		['ChatBoxBlindBackgroundColorPreset', 'ChatBoxBlindBackgroundColor', 'ChatBoxBlindBackgroundColorSelector']
     	];
 
     	for (var group = colorgroups.length - 1; group >= 0; group--) {

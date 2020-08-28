@@ -8,9 +8,12 @@
 
 	--p5e-pokedex-color: #FF0000FF;
 	--p5e-primary-background-color: #FFFBCEFF;
-	--p5e-chatborder-public: url('/modules/Pokemon5e-styles/images/border-hotbar-01.png') 16 round;
-	--p5e-chatborder-whisper: url('/modules/Pokemon5e-styles/images/border-hotbar-01.png') 16 round;
-	--p5e-chatborder-blind: url('/modules/Pokemon5e-styles/images/border-hotbar-01.png') 16 round;
+	--p5e-chatborder-public: url('/modules/Pokemon5e-styles/images/chatborders/21.png') 16 round;
+	--p5e-background-color-public: #f8f8f8;
+	--p5e-chatborder-whisper: url('/modules/Pokemon5e-styles/images/chatborders/01.png') 16 round;
+	--p5e-background-color-whisper: #b088d0;
+	--p5e-chatborder-blind: url('/modules/Pokemon5e-styles/images/chatborders/16.png') 16 round;
+	--p5e-background-color-blind: #b088d0;
 }
 
 /* ******************************************* */
@@ -306,7 +309,7 @@
 }
 
 
-.app .sidebar-tab footer,
+.app .sidebar-tab footer.directory-footer,
 .app.window-app .window-content footer.sheet-footer {
 	margin: 0px !important;
 	padding: 6px 3px;
@@ -379,13 +382,13 @@ li.folder > .folder-header h3 > i {
 
 #chat-log .message {
     margin: 2px;
-    padding: 5px;
+    padding: 0px;
     border-image: var(--p5e-chatborder-public);
     border-width: 16px;
     border-style: solid;
     border-radius: 5px;
     background-image: none !important;
-    background-color: var(--p5e-primary-background-color) !important;
+    background-color: var(--p5e-background-color-public) !important;
     background-clip: border-box;
     color: #191813;
     font-size: 14px;
@@ -393,7 +396,7 @@ li.folder > .folder-header h3 > i {
 
 #chat-log .message.whisper {
     border-image: var(--p5e-chatborder-whisper);
-    background-color: #e0d0ff !important;
+    background-color: var(--p5e-background-color-whisper) !important;
     border-width: 16px !important;
     border-style: solid !important;
     border-radius: 5px !important;
@@ -401,10 +404,30 @@ li.folder > .folder-header h3 > i {
 
 #chat-log .message.whisper.blind {
     border-image: var(--p5e-chatborder-blind);
-    background-color: #e0d0ff !important;
+    background-color: var(--p5e-background-color-blind) !important;
     border-width: 16px !important;
     border-style: solid !important;
     border-radius: 5px !important;
+}
+
+#chat-log .message .message-header {
+	background-color: #FFFBCE !important;
+    border-image: url('/modules/Pokemon5e-styles/images/border-interior-small.png') 5 round !important;
+    border-image-outset: 3px !important;
+    border-width: 5px !important;
+    border-style: solid !important;
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
+#chat-log .message .message-content {
+	margin: 10px 0 !important;
+	padding: 0px;
+    border-image: url('/modules/Pokemon5e-styles/images/border-textbox-small.png') 13 11 round !important;
+    border-width: 13px 11px !important;
+    border-style: solid !important;
+    background-clip: content-box;
+    background-color: #F8F8F8;
 }
 
 #chat-controls {
@@ -435,6 +458,64 @@ li.folder > .folder-header h3 > i {
     padding: 0px 4px !important;
     background-attachment: local;
 }
+
+.chat-card .card-footer {
+	margin: 0px;
+	padding: 0px !important;
+	border-image: url('/modules/Pokemon5e-styles/images/border-controlgroup-small.png') 4 round;
+    border-width: 4px !important;
+    border-style: solid !important;
+    border-radius: 10px !important;
+    border-color: rgba(255,255,255,0) !important;
+    background-color: #F7CB73;
+}
+
+.chat-card .card-buttons button {
+	padding: 0px;
+    border-image: url('/modules/Pokemon5e-styles/images/border-button-small.png') 3 stretch !important;
+    border-width: 3px !important;
+    border-style: solid !important;
+    background: rgb(128,192,216);
+    background: url('/modules/Pokemon5e-styles/images/scene-button-bg-normal.png'), linear-gradient(0deg, #80C0D8 40%, #3890D8 40%);
+    background-position: left 70%, center center !important;
+    background-repeat: repeat-x !important;
+    background-clip: padding-box !important;
+    box-shadow: none !important;
+    line-height: 14px !important;
+    color: #F8F8F8 !important;
+    text-shadow: 2px 0px black, 2px 2px 2px black, 0px 2px black;
+    border-image-outset: 3px;
+}
+
+.chat-card .card-buttons button:hover {
+	padding: 0px;
+    border-image: url('/modules/Pokemon5e-styles/images/border-button-small-select.png') 3 stretch !important;
+    border-width: 3px !important;
+    border-style: solid !important;
+    background: rgb(128,192,216);
+    background: url('/modules/Pokemon5e-styles/images/scene-button-bg-normal.png'), linear-gradient(0deg, #80C0D8 40%, #3890D8 40%);
+    background-position: left 70%, center center !important;
+    background-repeat: repeat-x !important;
+    background-clip: padding-box !important;
+    box-shadow: none !important;
+    line-height: 14px !important;
+    color: #F8F8F8 !important;
+    text-shadow: 2px 0px black, 2px 2px 2px black, 0px 2px black;
+    border-image-outset: 3px;
+}
+
+.chat-card .card-footer span {
+	border-right: 1px solid #6B696B;
+}
+
+.chat-card .card-header img {
+	background: var(--p5e-primary-background-color) !important;
+    border-top: 2px outset rgba(0,0,0,0.25) !important;
+    border-left: 2px outset rgba(0,0,0,0.25) !important;
+    border-right: 2px outset rgba(0,0,0,0.75) !important;
+    border-bottom: 2px outset rgba(0,0,0,0.75) !important;
+    border-radius: 2px;
+}	
 
 .dice-tray {
     background-color: #0078C0;
@@ -530,6 +611,7 @@ li.folder > .folder-header h3 > i {
 		url('/modules/Pokemon5e-styles/images/combat-entry-rcap-b.png'),
 		url('/modules/Pokemon5e-styles/images/combat-entry-bg.png');
     padding: 0px 40px 0px 23px;
+
 }
 
 #combat #combat-tracker .combatant.actor.active .token-name {
@@ -1003,10 +1085,12 @@ button[type="submit"]:hover,
     box-shadow: none !important;
 }
 
-.form-group button, .filepicker .current-dir button {
-	padding: 0px;
-    border-image: url(/modules/Pokemon5e-styles/images/border-scene-button.png) 6 fill stretch !important;
-    border-width: 6px !important;
+.form-group button,
+.filepicker .current-dir button,
+.chat-card .card-buttons button {
+	padding: 4px;
+    border-image: url(/modules/Pokemon5e-styles/images/border-button-small.png) 3 stretch !important;
+    border-width: 3px !important;
     border-style: solid !important;
     background: rgb(128,192,216);
     background: url(/modules/Pokemon5e-styles/images/scene-button-bg-normal.png), linear-gradient(0deg, #80C0D8 40%, #3890D8 40%);
@@ -1017,11 +1101,12 @@ button[type="submit"]:hover,
     line-height: 14px !important;
     color: #F8F8F8 !important;
     text-shadow: 2px 0px black, 2px 2px 2px black, 0px 2px black;
-    border-image-outset: 6px;
+    border-image-outset: 3px;
 }
 
-.form-group button:hover {
-	border-image: url(/modules/Pokemon5e-styles/images/border-scene-button-select.png) 6 fill stretch !important;
+.form-group button:hover,
+.chat-card .card-buttons button:hover {
+	border-image: url(/modules/Pokemon5e-styles/images/border-button-small-select.png) 3 stretch !important;
 	background: url('/modules/Pokemon5e-styles/images/scene-button-bg-select.png'), linear-gradient(0deg, #A8E8F8 40%, #78D0E8 40%)
 }
 
@@ -1064,8 +1149,8 @@ hr {
     top: 4px;
     height: 35px;
 	padding: 6px;
-    border-image: url(/modules/Pokemon5e-styles/images/border-scene-button.png) 6 fill stretch !important;
-    border-width: 6px !important;
+    border-image: url(/modules/Pokemon5e-styles/images/border-button-small.png) 3 stretch !important;
+    border-width: 3px !important;
     border-style: solid !important;
     background: rgb(128,192,216);
     background: url(/modules/Pokemon5e-styles/images/scene-button-bg-normal.png), linear-gradient(0deg, #80C0D8 40%, #3890D8 40%);
@@ -1079,7 +1164,7 @@ hr {
 }
 
 .list-filters button:hover, #module-management .expand:hover {
-    border-image: url('/modules/Pokemon5e-styles/images/border-scene-button-select.png') 6 fill stretch !important;
+    border-image: url('/modules/Pokemon5e-styles/images/border-button-small-select.png') 3 stretch !important;
     background: url('/modules/Pokemon5e-styles/images/scene-button-bg-select.png'),
 		linear-gradient(0deg, #A8E8F8 40%, #78D0E8 40%);
 
