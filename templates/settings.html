@@ -22,17 +22,35 @@
         <div class="form-group">
             <label>{{localize "P5ESTYLES.SheetBackgroundColor"}}</label>
             <div class="form-fields" style="flex-direction: column;">
-                <select name="sheetBackgroundColorPreset">
+                <select name="SheetBackgroundColorPreset">
                     <option value="custom">{{localize "P5ESTYLES.ColorOptionCustom"}}</option>
-                    {{#select sheetBackgroundColorPreset}}
+                    {{#select SheetBackgroundColorPreset}}
                     {{#each sheetColorPresets as |name key|}}
                     <option value="{{key}}">{{name}}</option>
                     {{/each}}
                     {{/select}}
                 </select>
                 <div class="flexrow" style="margin-top: 5px;">
-                    <input type="text" name="sheetBackgroundColor" value="{{sheetBackgroundColor}}" data-dtype="String"/>
-                    <input type="color" name="sheetBackgroundColorSelector" value="{{sheetBackgroundColor}}" data-edit="sheetBackgroundColor"/>
+                    <input type="text" name="SheetBackgroundColor" value="{{SheetBackgroundColor}}" data-dtype="String"/>
+                    <input type="color" name="SheetBackgroundColorSelector" value="{{SheetBackgroundColor}}" data-edit="SheetBackgroundColor"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>{{localize "P5ESTYLES.SheetForeroundColor"}}</label>
+            <div class="form-fields" style="flex-direction: column;">
+                <select name="SheetForegroundColorPreset">
+                    <option value="custom">{{localize "P5ESTYLES.ColorOptionCustom"}}</option>
+                    {{#select SheetForegroundColorPreset}}
+                    {{#each sheetColorPresets as |name key|}}
+                    <option value="{{key}}">{{name}}</option>
+                    {{/each}}
+                    {{/select}}
+                </select>
+                <div class="flexrow" style="margin-top: 5px;">
+                    <input type="text" name="SheetForegroundColor" value="{{SheetForegroundColor}}" data-dtype="String"/>
+                    <input type="color" name="SheetForegroundColorSelector" value="{{SheetForegroundColor}}" data-edit="SheetForegroundColor"/>
                 </div>
             </div>
         </div>

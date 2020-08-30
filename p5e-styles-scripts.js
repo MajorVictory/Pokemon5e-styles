@@ -8,6 +8,52 @@ function p5eGetBGData(num) {
 	return 'url(\'/modules/Pokemon5e-styles/images/chatborders/'+num+'.png\') '+slice;
 }
 
+function p5eCreateColors(hex, name) {
+	let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+
+    let r = parseInt(result[1], 16);
+    let g = parseInt(result[2], 16);
+    let b = parseInt(result[3], 16);
+
+    r /= 255, g /= 255, b /= 255;
+    let max = Math.max(r, g, b), min = Math.min(r, g, b);
+    let h, s, l = (max + min) / 2;
+
+    if(max == min){
+        h = s = 0; // achromatic
+    } else {
+        let d = max - min;
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        switch(max) {
+            case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+            case g: h = (b - r) / d + 2; break;
+            case b: h = (r - g) / d + 4; break;
+        }
+        h /= 6;
+    }
+    s = Math.round(s * 100);
+    l = Math.round(l * 100);
+    h = Math.round(h * 360);
+    let a = 1;
+
+    let colors = {
+    	value: 'hsla(' + h + ', ' + s + '%, ' + l + '%, ' + a + ')',
+    	quarter: 'hsla(' + h + ', ' + s + '%, ' + l + '%, 0.25)',
+    	half: 'hsla(' + h + ', ' + s + '%, ' + l + '%, 0.5)',
+    	threequarter: 'hsla(' + h + ', ' + s + '%, ' + l + '%, 0.75)',
+    	shadow: 'hsla(' + h + ', ' + s + '%, 25%, ' + a + ')',
+    	dark: 'hsla(' + h + ', ' + s + '%, 25%, 0.5)',
+    	light: 'hsla(' + h + ', 100%, 50%, ' + a + ')',
+    }
+
+    for (let colortype in colors) {
+    	let value = colors[colortype];
+    	let propname = '--p5e-'+name+(colortype != 'value' ? '-'+colortype : '');
+    	document.documentElement.style.setProperty(propname, value);
+    	
+    }
+}
+
 Hooks.once('init', () => {
 
     game.settings.registerMenu("Pokemon5e-styles", "Pokemon5e-styles", {
@@ -118,7 +164,8 @@ export class PokemonStylesConfig {
 		        "29": "Chat Border #29"
 			},
     		pokedexColor: '#f20c32',
-	    	sheetBackgroundColor: '#fffbce',
+	    	SheetBackgroundColor: '#fffbce',
+	    	SheetForegroundColor: '#58d0d0',
     		ChatBoxPublicBackgroundColor: '#58d0d0',
     		ChatBoxPublicBorder: '21',
     		ChatBoxWhisperBackgroundColor: '#b088d0',
@@ -134,16 +181,16 @@ export class PokemonStylesConfig {
 
 	static apply(options) {
 
-		document.documentElement.style.setProperty('--p5e-pokedex-color', options.pokedexColor);
-		document.documentElement.style.setProperty('--p5e-primary-background-color', options.sheetBackgroundColor);
+		p5eCreateColors(options.pokedexColor, 'bg-pokedex-color');
+		p5eCreateColors(options.SheetBackgroundColor, 'bg-color');
+		p5eCreateColors(options.SheetForegroundColor, 'fg-color');
+		p5eCreateColors(options.ChatBoxPublicBackgroundColor, 'chatbg-color-public');
+		p5eCreateColors(options.ChatBoxWhisperBackgroundColor, 'chatbg-color-whisper');
+		p5eCreateColors(options.ChatBoxBlindBackgroundColor, 'chatbg-color-blind');
 
 		document.documentElement.style.setProperty('--p5e-chatborder-public', p5eGetBGData(options.ChatBoxPublicBorder));
 		document.documentElement.style.setProperty('--p5e-chatborder-whisper', p5eGetBGData(options.ChatBoxWhisperBorder));
 		document.documentElement.style.setProperty('--p5e-chatborder-blind', p5eGetBGData(options.ChatBoxBlindBorder));
-
-		document.documentElement.style.setProperty('--p5e-background-color-public', options.ChatBoxPublicBackgroundColor);
-		document.documentElement.style.setProperty('--p5e-background-color-whisper', options.ChatBoxWhisperBackgroundColor);
-		document.documentElement.style.setProperty('--p5e-background-color-blind', options.ChatBoxBlindBackgroundColor);
 	}
 }
 
@@ -170,14 +217,15 @@ class PokemonStylesConfigDialog extends FormApplication {
     activateListeners(html) {
         super.activateListeners(html);
         html.find('select[name="pokedexColorPreset"],input[name="pokedexColor"],input[name="pokedexColorSelector"]').change(this.updateColor.bind(this));
-        html.find('select[name="sheetBackgroundColorPreset"],input[name="sheetBackgroundColor"],input[name="sheetBackgroundColorSelector"]').change(this.updateColor.bind(this));
+        html.find('select[name="SheetBackgroundColorPreset"],input[name="SheetBackgroundColor"],input[name="SheetBackgroundColorSelector"]').change(this.updateColor.bind(this));
+        html.find('select[name="SheetForegroundColorPreset"],input[name="SheetForegroundColor"],input[name="SheetForegroundColorSelector"]').change(this.updateColor.bind(this));
         html.find('select[name="ChatBoxPublicBackgroundColorPreset"],input[name="ChatBoxPublicBackgroundColor"],input[name="ChatBoxPublicBackgroundColorSelector"]').change(this.updateColor.bind(this));
         html.find('select[name="ChatBoxWhisperBackgroundColorPreset"],input[name="ChatBoxWhisperBackgroundColor"],input[name="ChatBoxWhisperBackgroundColorSelector"]').change(this.updateColor.bind(this));
         html.find('select[name="ChatBoxBlindBackgroundColorPreset"],input[name="ChatBoxBlindBackgroundColor"],input[name="ChatBoxBlindBackgroundColorSelector"]').change(this.updateColor.bind(this));
         html.find('input,select').change(this.onApply.bind(this));
         html.find('button[name="reset"]').click(this.onReset.bind(this));
 
-        $('input[name="pokedexColor"], input[name="sheetBackgroundColor"], input[name="ChatBoxPublicBackgroundColor"], input[name="ChatBoxWhisperBackgroundColor"], input[name="ChatBoxBlindBackgroundColor"]').change();
+        $('input[name="pokedexColor"], input[name="SheetBackgroundColor"], input[name="ChatBoxPublicBackgroundColor"], input[name="ChatBoxWhisperBackgroundColor"], input[name="ChatBoxBlindBackgroundColor"]').change();
 
         this.reset = false;
     }
@@ -187,7 +235,7 @@ class PokemonStylesConfigDialog extends FormApplication {
     	let control = $(event.target);
 
     	// validate manual color
-    	if (['pokedexColor','sheetBackgroundColor','ChatBoxPublicBackgroundColor',
+    	if (['pokedexColor','SheetBackgroundColor', 'SheetForegroundColor','ChatBoxPublicBackgroundColor',
     		'ChatBoxWhisperBackgroundColor', 'ChatBoxBlindBackgroundColor'].includes(control.prop('name'))) {
 
     		let colortest = /^#[0-9A-F]{6}$/i.test(control.val());
@@ -200,7 +248,8 @@ class PokemonStylesConfigDialog extends FormApplication {
 
     	let colorgroups = [
     		['pokedexColorPreset', 'pokedexColor', 'pokedexColorSelector'],
-    		['sheetBackgroundColorPreset', 'sheetBackgroundColor', 'sheetBackgroundColorSelector'],
+    		['SheetBackgroundColorPreset', 'SheetBackgroundColor', 'SheetBackgroundColorSelector'],
+    		['SheetForegroundColorPreset', 'SheetForegroundColor', 'SheetForegroundColorSelector'],
     		['ChatBoxPublicBackgroundColorPreset', 'ChatBoxPublicBackgroundColor', 'ChatBoxPublicBackgroundColorSelector'],
     		['ChatBoxWhisperBackgroundColorPreset', 'ChatBoxWhisperBackgroundColor', 'ChatBoxWhisperBackgroundColorSelector'],
     		['ChatBoxBlindBackgroundColorPreset', 'ChatBoxBlindBackgroundColor', 'ChatBoxBlindBackgroundColorSelector']
