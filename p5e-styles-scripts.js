@@ -87,7 +87,7 @@ export class PokemonStylesConfig {
 	static get getDefaults() {
 		return {
     		pokedexPresets: {
-				'#f20c32': 'Red (Default)',
+				'#f20c32': 'Red',
 				'#0a2dc9': 'Blue',
 				'#0ac92a': 'Green',
 				'#f2eb0c': 'Yellow',
@@ -122,7 +122,7 @@ export class PokemonStylesConfig {
 				'#ff4ea1': 'Shield'
 			},
     		sheetColorPresets: {
-				"#fffbce": "Tan (Default)",
+				"#fffbce": "Tan",
 	        	"#ff6868": "Trainer Red",
 	        	"#dc8161": "Magikarp Red",
 	        	"#f0b850": "Pikachu Yellow",
@@ -225,7 +225,7 @@ class PokemonStylesConfigDialog extends FormApplication {
         html.find('input,select').change(this.onApply.bind(this));
         html.find('button[name="reset"]').click(this.onReset.bind(this));
 
-        $('input[name="pokedexColor"], input[name="SheetBackgroundColor"], input[name="ChatBoxPublicBackgroundColor"], input[name="ChatBoxWhisperBackgroundColor"], input[name="ChatBoxBlindBackgroundColor"]').change();
+        $('input[name="pokedexColor"], input[name="SheetBackgroundColor"], input[name="SheetForegroundColor"], input[name="ChatBoxPublicBackgroundColor"], input[name="ChatBoxWhisperBackgroundColor"], input[name="ChatBoxBlindBackgroundColor"]').change();
 
         this.reset = false;
     }

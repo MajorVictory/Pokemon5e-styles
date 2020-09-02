@@ -1029,11 +1029,10 @@ footer.compendium-footer > span:nth-child(2) {
 
 .window-app .window-content .sheet-header {
 	background-color: #FFFBCE !important;
-    border-image: url('/modules/Pokemon5e-styles/images/border-interior.png') 10 fill round !important;
-    border-image-outset: 10px !important;
+    border-image: url('/modules/Pokemon5e-styles/images/border-interior.png') 10 round !important;
     border-width: 10px !important;
     border-style: solid !important;
-    margin: 10px 10px 15px 10px !important;
+    margin: 0px 0px 5px 0px !important;
     padding: 0px !important;
 }
 
@@ -1084,7 +1083,9 @@ button[type="submit"],
 .dialog-button:hover,
 button[type="submit"]:hover,
 .app .sidebar-tab footer button:hover,
-.app.window-app .window-content footer button:hover {
+.app.window-app .window-content footer button:hover,
+.filepicker .display-modes a:hover,
+.filepicker .display-modes a.active {
     border-image: url('/modules/Pokemon5e-styles/images/border-control-button-select.png') 12 round !important;
     background: url('/modules/Pokemon5e-styles/images/scene-button-bg-select.png'), linear-gradient(0deg, #A8E8F8 40%, #78D0E8 40%);
     background-clip: border-box;
@@ -1094,7 +1095,8 @@ button[type="submit"]:hover,
 
 .form-group button,
 .filepicker .current-dir button,
-.chat-card .card-buttons button {
+.chat-card .card-buttons button,
+.filepicker .display-modes a {
 	padding: 4px;
     border-image: url(/modules/Pokemon5e-styles/images/border-button-small.png) 3 stretch !important;
     border-width: 3px !important;
@@ -1138,7 +1140,7 @@ form .form-group {
     border-style: solid !important;
     border-radius: 15px !important;
     border-color: rgba(255,255,255,0) !important;
-    background-color: #F7CB73;
+    background-color: #F7CB73 !important;
 }
 
 hr {
@@ -1184,12 +1186,29 @@ hr {
 
 }
 
+.app.window-app.filepicker {
+    min-width: 548px;
+}
 
 a:hover,
 .dnd5e.chat-card .card-header h3:hover,
 .filepicker .directory > li:hover {
 	color: white;
     text-shadow: 2px 0px #710000, 2px 2px 2px #710000, 0px 2px #710000;
+}
+
+.filepicker .window-content .filepicker-body .filepicker-body {
+    border-radius: 0px;
+    background-color: var(--p5e-fg-color-half);
+    border: 2px outset var(--p5e-fg-color-dark);
+}
+
+.filepicker .directory.folders-list {
+    max-height: 250px;
+}
+
+.filepicker .directory.files-list {
+    max-height: 300px;
 }
 
 #controls-reference ol.hotkey-list li.gm .key {
@@ -1242,20 +1261,23 @@ a:hover,
 }
 
 .dnd5e.sheet .sheet-header img.profile,
+.dnd5e.sheet.item .sheet-header img.profile,
 .macro-sheet.sheet .sheet-header img {
-	background: var(--p5e-fg-color) !important;
+	background: var(--p5e-fg-color);
     border: 4px outset var(--p5e-fg-color-dark);
     border-radius: 4px;
 }
 
-.dnd5e.sheet .sheet-header h1 input {
+.dnd5e.sheet .sheet-header h1 input,
+.sheet .sheet-header h1 input {
     font-family: pokemon_solidnormal;
 	font-size: 25px;
     font-weight: 100;
     letter-spacing: 0.05em;
 }
 
-.dnd5e.sheet.actor .sheet-header .summary {
+.dnd5e.sheet.actor .sheet-header .summary,
+.dnd5e.sheet.item .sheet-header .summary {
 	border: 2px outset var(--p5e-fg-color-dark);
     background-color: var(--p5e-fg-color-threequarter);
     font-family: squarefontregular;
@@ -1319,6 +1341,7 @@ a:hover,
     box-sizing: content-box;
     box-shadow: none !important;
     border: none !important;
+    background-color: unset !important;
     background-image: 
     	url(/modules/Pokemon5e-styles/images/tab-item-bg-left.png),
     	url(/modules/Pokemon5e-styles/images/tab-item-bg-right.png),
@@ -1326,21 +1349,22 @@ a:hover,
     background-repeat: no-repeat, no-repeat, no-repeat !important;
     background-position: center left, center right, center center !important;
     background-size: contain, contain, calc(100% - 12px) 100% !important;
-    line-height: 1.6em;
-    font-family: 'LE Model D CGA-2y';
-    font-weight: 100;
-    font-size: 18px;
-    color: #005173;
-    text-shadow: 2px 0px 2px #A1CCCC, 2px 2px 2px #A1CCCC, 0px 2px 2px #A1CCCC;
+    text-align: center !important;
+    line-height: 1.6em !important;
+    font-family: 'LE Model D CGA-2y' !important;
+    font-weight: 100 !important;
+    font-size: 18px !important;
+    color: #005173 !important;
+    text-shadow: 2px 0px 2px #A1CCCC, 2px 2px 2px #A1CCCC, 0px 2px 2px #A1CCCC !important;
 }
 
 .filepicker-header .tabs .item {
-	font-size: 1.3em;
+	font-size: 1.3em !important;
 }
 
 .sheet-tabs .item {
-    font-size: 1.1em;
-    line-height: 1.7em;
+    font-size: 1.1em !important;
+    line-height: 1.7em !important;
 }
 
 .list-filters .filter {
@@ -1350,22 +1374,22 @@ a:hover,
 }
 
 .dnd5e.sheet .filter-list .filter-item {
-    font-size: 1.1em;
-    line-height: 2.2em;
+    font-size: 1.1em !important;
+    line-height: 2.2em !important;
 }
 
 nav.list-filters a.filter {
-	font-size: 0.9em;
-    line-height: 2.7em;
+	font-size: 0.9em !important;
+    line-height: 2.7em !important;
 }
 
 nav.list-filters a.filter.active {
-	font-weight: 100;
+	font-weight: 100 !important;
 }
 
 .sheet-tabs .item i,
 .filepicker-header .tabs .item i {
-    font-size: initial;
+    font-size: initial !important;
 }
 
 .sheet-navigation .item:hover,
@@ -1388,13 +1412,10 @@ nav.list-filters a.filter.active {
 	    url(/modules/Pokemon5e-styles/images/tab-item-bg-right-active.png),
 	    url(/modules/Pokemon5e-styles/images/tab-item-bg-active.png) !important;
     text-shadow: 2px 0px #D88848, 2px 2px 2px #D88848, 0px 2px #D88848 !important;
-    color: black;
+    color: black !important;
 }
 
-
 .dnd5e.sheet.item .sheet-body {
-	background-color: #0078C0;
-    background-image: url('/modules/Pokemon5e-styles/images/window-stripes-bg.png');
     padding-left: .25rem !important;
 }
 
@@ -1412,6 +1433,12 @@ nav.list-filters a.filter.active {
     flex: 0 0 130px !important;
     height: fit-content;
     z-index: 2;
+}
+
+.dnd5e.sheet.item .sheet-body .item-properties .properties-list li {
+    font-family: 'Wyse700b-2y' !important;
+    font-size: 14px !important;
+    font-weight: 100 !important;
 }
 
 .dnd5e.sheet.item .sheet-body .editor {
@@ -1439,14 +1466,14 @@ nav.list-filters a.filter.active {
 
 
 .dnd5e.sheet.actor h4.box-title {
-	background-image: url(/modules/Pokemon5e-styles/images/tab-item-bg-left.png),
+	/*background-image: url(/modules/Pokemon5e-styles/images/tab-item-bg-left.png),
 		url(/modules/Pokemon5e-styles/images/tab-item-bg-right.png),
 		url(/modules/Pokemon5e-styles/images/tab-item-bg.png) !important;
     background-repeat: no-repeat, no-repeat, no-repeat;
     background-position: center left, center right, center center;
-    background-size: contain, contain, calc(100% - 6px) 100%;
+    background-size: contain, contain, calc(100% - 6px) 100%;*/
     border: none !important;
-    line-height: 12px;
+    line-height: 15px;
     font-family: squarefontregular;
     font-size: 12px;
     font-weight: 100;
@@ -1460,10 +1487,15 @@ nav.list-filters a.filter.active {
 }
 
 .dnd5e.sheet.actor .ability-scores {
-	height: 420px;
+    margin-top: 5px;
+	height: 418px;
+    border: none !important;
 }
 
-.dnd5e.sheet.actor .ability-scores,
+.dnd5e.sheet.actor ul.skills-list {
+    margin-top: 5px;
+}
+
 .dnd5e.sheet.actor ul.skills-list,
 .dnd5e.sheet.actor .inventory-list {
 	border-radius: 0px;
@@ -1471,37 +1503,83 @@ nav.list-filters a.filter.active {
     border: 2px outset var(--p5e-fg-color-dark)
 }
 
-.dnd5e.sheet.actor .ability-scores .ability {
-    border-bottom: 2px solid var(--p5e-fg-color-shadow);
+.dnd5e.sheet.actor ul.skills-list {
+    flex: 0 0 205px !important;
+    margin-top: 8px !important;
+    background-color: #FFFBCE !important;
+    border-image: url(/modules/Pokemon5e-styles/images/border-interior-small.png) 5 round !important;
+    border-image-outset: 3px !important;
+    border-width: 5px !important;
+    border-style: solid !important;
+    padding: 0px !important;
 }
 
-.dnd5e.sheet.actor .ability-scores .ability .ability-modifiers .ability-proficiency,
+.dnd5e.sheet.actor ul.skills-list li.skill.proficient {
+    background-color: var(--p5e-fg-color-half);
+}
+
+
+.dnd5e.sheet.actor .ability-scores .ability {
+    position: relative;
+    z-index: 1;
+    width: 100px;
+    height: 70px;
+}
+
+.dnd5e.sheet.actor .ability-scores .ability::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 52px;
+    height: 12px;
+    z-index: -1;
+    border-image: url(/modules/Pokemon5e-styles/images/bg-attribute-color.png) 36 24 22 24 fill stretch !important;
+    border-width: 36px 24px 22px 24px !important;
+    border-style: solid !important;
+    background-color: var(--p5e-fg-color);
+}
+
+.dnd5e.sheet.actor .ability-scores .ability.proficient::after {
+    background-color: var(--p5e-fg-color-light);
+}
+
+.dnd5e.sheet.actor .ability-scores .ability .ability-modifiers .ability-proficiency {
+    line-height: 23px;
+    padding-left: 2px;
+}
+
 .dnd5e.sheet.actor .proficiency-toggle {
-	line-height: 26px;
-	color: var(--p5e-fg-color-shadow) !important;
+    line-height: 22px !important;
+    color: var(--p5e-fg-color-shadow) !important;
 }
 
 .dnd5e.sheet.actor .proficiency-toggle:hover {
+    color: #f8f8f8 !important;
+}
+
+.dnd5e.sheet.actor .proficiency-toggle:hover {
+    color: var(--p5e-fg-color-light);
 	text-shadow: 2px 0px 2px var(--p5e-fg-color-shadow), 2px 2px 2px var(--p5e-fg-color-shadow), 0px 2px 2px var(--p5e-fg-color-shadow);
 }
 
+.dnd5e.sheet.actor .ability-scores .ability .ability-modifiers {
+    margin: -5px 0 0;
+    padding: 0px 3px;
+}
+
 .dnd5e.sheet.actor .ability-scores .ability .ability-modifiers span.ability-mod {
-	border-width: 2px 2px 0px 0px !important;
-	border-style: solid !important;
-	border-color: var(--p5e-fg-color-shadow);
-    background-color: var(--p5e-fg-color-half);
+	border-width: 0px !important;
 }
 
 .dnd5e.sheet.actor .ability-scores .ability .ability-modifiers span.ability-save {
-	border-width: 2px 0px 0px 2px !important;
-	border-style: solid !important;
-	border-color: var(--p5e-fg-color-shadow);
-    background-color: var(--p5e-fg-color-half);
+	border-width: 0px !important;
 }
 
-.dnd5e.sheet.actor.character ul.skills-list li.skill h4 {
-	font-family: 'AC437 Wyse700b-2y';
-    font-size: 1em;
+.dnd5e.sheet.actor ul.skills-list li.skill h4 {
+	font-family: 'euxoiregular';
+    font-size: 16px !important;
     font-weight: 100;
 }
 
@@ -1510,6 +1588,14 @@ nav.list-filters a.filter.active {
     border-radius: 0px;
     border: 2px outset var(--p5e-fg-color-dark);
     background-color: var(--p5e-fg-color-half);
+}
+
+.dnd5e.sheet.actor .sheet-header .attributes .attribute {
+    border-right: 2px solid var(--p5e-fg-color-dark);
+}
+
+.dnd5e.sheet.actor .center-pane {
+    margin-top: 5px;
 }
 
 .dnd5e.sheet.actor .counters {
@@ -1529,12 +1615,13 @@ nav.list-filters a.filter.active {
 }
 
 .dnd5e.sheet.actor .inventory-filters {
-	margin: 0px;
+	margin: 5px 0px;
+
 }
 
 .dnd5e.sheet.actor .inventory-filters .currency {
     height: 30px;
-	margin: 2px 0px 2px 0px;
+	margin: 0px 0px 5px 0px;
     padding: 5px 5px 0px 5px;
     border: 2px outset var(--p5e-fg-color-dark);
     background-color: var(--p5e-fg-color-half);
@@ -1567,8 +1654,8 @@ nav.list-filters a.filter.active {
 }
 
 .dnd5e.sheet.actor .inventory-list .inventory-header {
-    background: var(--p5e-fg-color-half);
     border: 2px outset var(--p5e-fg-color-dark);
+    background-image: linear-gradient(0deg, var(--p5e-fg-color-quarter) 8px, var(--p5e-fg-color) 8px, var(--p5e-fg-color-quarter) 12px, var(--p5e-fg-color) 12px);
 }
 
 
@@ -1576,9 +1663,9 @@ nav.list-filters a.filter.active {
 	background-color: var(--p5e-fg-color-dark);
 }
 
-.dnd5e.sheet.actor .inventory-list .item {
-	border-bottom: 1px solid var(--p5e-fg-color-shadow);
-	background-color: var(--p5e-fg-color-threequarter);
+.dnd5e.sheet.actor .inventory-list .item-list .item {
+    border-bottom: 1px solid var(--p5e-fg-color-shadow);
+    background-color: var(--p5e-fg-color-threequarter);
 }
 
 .dnd5e.sheet.actor .inventory-list .item .item-name {
@@ -1587,7 +1674,8 @@ nav.list-filters a.filter.active {
     padding-left: 0px;
 }
 
-.dnd5e.sheet.actor .inventory-list .item-detail {
+.dnd5e.sheet.actor .inventory-list .item-detail,
+.dnd5e.sheet.actor .inventory-list .item div[class^="spell-"] {
 	border-right: 1px solid var(--p5e-fg-color-shadow);
 	color: var(--p5e-fg-color-shadow);
     text-shadow: 2px 0px 2px var(--p5e-fg-color-half), 2px 2px 2px var(--p5e-fg-color-half), 0px 2px 2px var(--p5e-fg-color-half);
@@ -1602,11 +1690,46 @@ nav.list-filters a.filter.active {
 }
 
 .dnd5e.sheet.actor .inventory-list .item-controls a {
-	color: var(--p5e-fg-color-shadow);
+    color: var(--p5e-fg-color-shadow);
+    text-shadow: none;
 }
 
 .dnd5e.sheet.actor .inventory-list .item-controls a:hover {
-	color: #f8f8f8;
+	color: #f8f8f8 !important;
+    text-shadow: 2px 0px 2px var(--p5e-fg-color-dark), 2px 2px 2px var(--p5e-fg-color-dark), 0px 2px 2px var(--p5e-fg-color-dark);
+}
+
+.dnd5e.sheet.actor .inventory-list .item-controls a.item-delete:hover {
+    color: #ff6666 !important;
+}
+
+.dnd5e.sheet.actor.character .inventory .item-controls .item-toggle,
+.dnd5e.sheet.actor.character .spellbook .item-controls .item-toggle,
+.dnd5e.sheet.actor.vehicle .features .item-controls .item-toggle {
+    color: var(--p5e-fg-color-shadow);
+    text-shadow: none;
+}
+
+.dnd5e.sheet.actor.character .inventory .item-controls .item-toggle.active,
+.dnd5e.sheet.actor.character .spellbook .item-controls .item-toggle.active,
+.dnd5e.sheet.actor.vehicle .features .item-controls .item-toggle.active {
+    color: var(--p5e-fg-color-light);
+    text-shadow: 2px 0px 2px var(--p5e-fg-color-dark), 2px 2px 2px var(--p5e-fg-color-dark), 0px 2px 2px var(--p5e-fg-color-dark);
+}
+
+.dnd5e.sheet.actor .spell-component {
+    line-height: 20px;
+    font-family: 'Wyse700b-2y';
+    font-size: 15px;
+    font-weight: bold;
+}
+.dnd5e.sheet.actor .spell-component.C,
+.dnd5e.sheet.actor .spell-component.R {
+    width: 12px;
+    border: 0px solid transparent;
+    border-radius: 8px;
+    background-color: var(--p5e-fg-color-light);
+    color: var(--p5e-fg-color-shadow);
 }
 
 .dnd5e.sheet.actor .spellcasting-ability {
@@ -1617,6 +1740,10 @@ nav.list-filters a.filter.active {
 
 .dnd5e.sheet.actor .spellcasting-ability select {
 	flex: 1;
+}
+
+.dnd5e.sheet.actor .inventory-list .item-summary {
+    border-top: 1px solid var(--p5e-fg-color-shadow);
 }
 
 .dnd5e.sheet .editable .rollable:hover {
@@ -1639,6 +1766,10 @@ textarea {
     border-style: solid !important;
     background-clip: content-box;
     background-color: #F8F8F8;
+}
+
+.editor {
+    margin-top: 5px;
 }
 
 textarea:focus {

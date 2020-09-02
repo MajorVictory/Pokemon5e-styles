@@ -66,10 +66,6 @@
     font-style: normal;
 }
 
-/* experimental */
-
-
-
 @font-face {
     font-family: 'AC437 Wyse700b-2y';
     src: url('Wyse700b-2y/Ac437_Wyse700b-2y.ttf') format('truetype');
@@ -83,6 +79,10 @@
     font-weight: normal;
     font-style: normal;
 }
+
+/* experimental */
+
+
 
 @font-face {
     font-family: 'MBytePC230 EGA';
