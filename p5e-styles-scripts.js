@@ -42,8 +42,10 @@ function p5eCreateColors(hex, name) {
     	half: 'hsla(' + h + ', ' + s + '%, ' + l + '%, 0.5)',
     	threequarter: 'hsla(' + h + ', ' + s + '%, ' + l + '%, 0.75)',
     	shadow: 'hsla(' + h + ', ' + s + '%, 25%, ' + a + ')',
-    	dark: 'hsla(' + h + ', ' + s + '%, 25%, 0.5)',
-    	light: 'hsla(' + h + ', 100%, 50%, ' + a + ')',
+        dark: 'hsla(' + h + ', ' + s + '%, 25%, 0.5)',
+        light: 'hsla(' + h + ', 100%, 50%, ' + a + ')',
+        darker: 'hsla(' + h + ', ' + s + '%, ' + Math.max(0, (l - 10)) + '%, ' + a + ')',
+        lighter: 'hsla(' + h + ', ' + s + '%, ' + Math.min(100, (l + 10)) + '%, ' + a + ')'
     }
 
     for (let colortype in colors) {
@@ -79,6 +81,17 @@ Hooks.once('init', () => {
 
 Hooks.once('ready', () => {
 	PokemonStylesConfig.apply(PokemonStylesConfig.getOptions);
+
+    // pokedex button 1 - opens styles config menu
+    $('#controls').append($('<p>', { class: 'dexbutton dexbutton1' }).click(function(event) {
+            const menu = game.settings.menus.get("Pokemon5e-styles.Pokemon5e-styles");
+            if ( !menu ) return ui.notifications.error("No submenu found for the provided key");
+            const app = new menu.type();
+            return app.render(true);
+        })
+    );
+
+    $('#pause > img').attr('src', '/modules/pokemon5e-styles/images/pauseballs.png');
 });
 
 // main class to hold default configs and current settings
