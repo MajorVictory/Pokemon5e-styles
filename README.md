@@ -38,6 +38,9 @@ Adds UI Styles based on the Pokémon Firered and Leafgreen games.
  * [Jerakin's Pokemon5e Module](https://github.com/Jerakin/p5e-foundryVTT) - Moves, abilities, and pokemon compendiums
  * [My Pokemon5e Items Module](https://github.com/MajorVictory/Pokemon5e-items) - Items, tables, and resources.
 
+**[Known Issues]**
+ * *Not Compatible* with other sheet addons like Tidy5eSheet, support coming soon™.
+ * *Unknown Compatibility* with other game systems
 
 ### Latest Release: V1.0.0
 
