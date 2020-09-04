@@ -82,7 +82,7 @@ Hooks.once('init', () => {
 Hooks.once('ready', () => {
 	PokemonStylesConfig.apply(PokemonStylesConfig.getOptions);
 
-    // pokedex button 1 - opens styles config menu
+    // controldex button 1 - opens styles config menu
     $('#controls').append($('<p>', { class: 'dexbutton dexbutton1' }).click(function(event) {
             const menu = game.settings.menus.get("Pokemon5e-styles.Pokemon5e-styles");
             if ( !menu ) return ui.notifications.error("No submenu found for the provided key");
@@ -91,7 +91,7 @@ Hooks.once('ready', () => {
         })
     );
 
-    $('#pause > img').attr('src', '/modules/pokemon5e-styles/images/pauseballs.png');
+    $('#pause > img').attr('src', '/modules/pokemon5e-styles/images/P5e-Logo-512x512.png');
 });
 
 // main class to hold default configs and current settings
@@ -99,7 +99,7 @@ export class PokemonStylesConfig {
 
 	static get getDefaults() {
 		return {
-    		pokedexPresets: {
+    		controldexPresets: {
 				'#f20c32': 'Red',
 				'#0a2dc9': 'Blue',
 				'#0ac92a': 'Green',
@@ -135,15 +135,18 @@ export class PokemonStylesConfig {
 				'#ff4ea1': 'Shield'
 			},
     		sheetColorPresets: {
-				"#fffbce": "Tan",
-	        	"#ff6868": "Trainer Red",
-	        	"#dc8161": "Magikarp Red",
-	        	"#f0b850": "Pikachu Yellow",
-	        	"#68c098": "Misty's Green Eyes",
-				"#9fd271": "Caterpie Green",
+				"#fffbce": "Standard Tan",
+	        	"#ff9d9d": "Trainer Red",
+	        	"#e4a089": "Rocky Brown",
+	        	"#f4ce88": "Mousy Yellow",
+	        	"#68c098": "Misty Green",
+				"#b5dc92": "Buggy Green",
 	        	"#58d0d0": "Trainer Blue",
-	        	"#b088d0": "Trainer Purple",
-				"#eee6dd": "Chancey Shell White"
+	        	"#c0a5da": "Trainer Purple",
+                "#eee6dd": "Eggy Shell White",
+                "#f0ace6": "Balloon Pink",
+                "#c0c0c0": "Steely Grey",
+                "#525252": "Edgy Black"
 			},
     		chatBorders: {
 				"01": "Chat Border #01",
@@ -176,14 +179,14 @@ export class PokemonStylesConfig {
 		        "28": "Chat Border #28",
 		        "29": "Chat Border #29"
 			},
-    		pokedexColor: '#f20c32',
+    		controldexColor: '#f20c32',
 	    	SheetBackgroundColor: '#fffbce',
 	    	SheetForegroundColor: '#58d0d0',
     		ChatBoxPublicBackgroundColor: '#58d0d0',
     		ChatBoxPublicBorder: '21',
-    		ChatBoxWhisperBackgroundColor: '#b088d0',
+    		ChatBoxWhisperBackgroundColor: '#c0a5da',
     		ChatBoxWhisperBorder: '03',
-    		ChatBoxBlindBackgroundColor: '#e08868',
+    		ChatBoxBlindBackgroundColor: '#ff9d9d',
     		ChatBoxBlindBorder: '11'
     	};
 	}
@@ -194,7 +197,7 @@ export class PokemonStylesConfig {
 
 	static apply(options) {
 
-		p5eCreateColors(options.pokedexColor, 'bg-pokedex-color');
+		p5eCreateColors(options.controldexColor, 'bg-controldex-color');
 		p5eCreateColors(options.SheetBackgroundColor, 'bg-color');
 		p5eCreateColors(options.SheetForegroundColor, 'fg-color');
 		p5eCreateColors(options.ChatBoxPublicBackgroundColor, 'chatbg-color-public');
@@ -229,7 +232,7 @@ class PokemonStylesConfigDialog extends FormApplication {
 
     activateListeners(html) {
         super.activateListeners(html);
-        html.find('select[name="pokedexColorPreset"],input[name="pokedexColor"],input[name="pokedexColorSelector"]').change(this.updateColor.bind(this));
+        html.find('select[name="controldexColorPreset"],input[name="controldexColor"],input[name="controldexColorSelector"]').change(this.updateColor.bind(this));
         html.find('select[name="SheetBackgroundColorPreset"],input[name="SheetBackgroundColor"],input[name="SheetBackgroundColorSelector"]').change(this.updateColor.bind(this));
         html.find('select[name="SheetForegroundColorPreset"],input[name="SheetForegroundColor"],input[name="SheetForegroundColorSelector"]').change(this.updateColor.bind(this));
         html.find('select[name="ChatBoxPublicBackgroundColorPreset"],input[name="ChatBoxPublicBackgroundColor"],input[name="ChatBoxPublicBackgroundColorSelector"]').change(this.updateColor.bind(this));
@@ -238,7 +241,7 @@ class PokemonStylesConfigDialog extends FormApplication {
         html.find('input,select').change(this.onApply.bind(this));
         html.find('button[name="reset"]').click(this.onReset.bind(this));
 
-        $('input[name="pokedexColor"], input[name="SheetBackgroundColor"], input[name="SheetForegroundColor"], input[name="ChatBoxPublicBackgroundColor"], input[name="ChatBoxWhisperBackgroundColor"], input[name="ChatBoxBlindBackgroundColor"]').change();
+        $('input[name="controldexColor"], input[name="SheetBackgroundColor"], input[name="SheetForegroundColor"], input[name="ChatBoxPublicBackgroundColor"], input[name="ChatBoxWhisperBackgroundColor"], input[name="ChatBoxBlindBackgroundColor"]').change();
 
         this.reset = false;
     }
@@ -248,7 +251,7 @@ class PokemonStylesConfigDialog extends FormApplication {
     	let control = $(event.target);
 
     	// validate manual color
-    	if (['pokedexColor','SheetBackgroundColor', 'SheetForegroundColor','ChatBoxPublicBackgroundColor',
+    	if (['controldexColor','SheetBackgroundColor', 'SheetForegroundColor','ChatBoxPublicBackgroundColor',
     		'ChatBoxWhisperBackgroundColor', 'ChatBoxBlindBackgroundColor'].includes(control.prop('name'))) {
 
     		let colortest = /^#[0-9A-F]{6}$/i.test(control.val());
@@ -260,7 +263,7 @@ class PokemonStylesConfigDialog extends FormApplication {
     	}
 
     	let colorgroups = [
-    		['pokedexColorPreset', 'pokedexColor', 'pokedexColorSelector'],
+    		['controldexColorPreset', 'controldexColor', 'controldexColorSelector'],
     		['SheetBackgroundColorPreset', 'SheetBackgroundColor', 'SheetBackgroundColorSelector'],
     		['SheetForegroundColorPreset', 'SheetForegroundColor', 'SheetForegroundColorSelector'],
     		['ChatBoxPublicBackgroundColorPreset', 'ChatBoxPublicBackgroundColor', 'ChatBoxPublicBackgroundColorSelector'],

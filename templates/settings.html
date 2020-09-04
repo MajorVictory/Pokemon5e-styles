@@ -4,17 +4,17 @@
         <div class="form-group">
             <label>{{localize "P5ESTYLES.PokedexColor"}}</label>
             <div class="form-fields" style="flex-direction: column;">
-                <select name="pokedexColorPreset">
+                <select name="controldexColorPreset">
                     <option value="custom">{{localize "P5ESTYLES.ColorOptionCustom"}}</option>
-                    {{#select pokedexColorPreset}}
-                    {{#each pokedexPresets as |name key|}}
+                    {{#select controldexColorPreset}}
+                    {{#each controldexPresets as |name key|}}
                     <option value="{{key}}">{{name}}</option>
                     {{/each}}
                     {{/select}}
                 </select>
                 <div class="flexrow" style="margin-top: 5px;">
-                    <input type="text" name="pokedexColor" value="{{pokedexColor}}" data-dtype="String"/>
-                    <input type="color" name="pokedexColorSelector" value="{{pokedexColor}}" data-edit="pokedexColor"/>
+                    <input type="text" name="controldexColor" value="{{controldexColor}}" data-dtype="String"/>
+                    <input type="color" name="controldexColorSelector" value="{{controldexColor}}" data-edit="controldexColor"/>
                 </div>
             </div>
         </div>
