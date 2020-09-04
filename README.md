@@ -10,18 +10,15 @@
     <img src="readme/P5e-Logo-512x512.png" alt="Logo" width="128" height="128">
   </a>
 
-  <h3 align="center">Pokemon5e Items module for FoundryVtt</h3>
+  <h3 align="center">Pokemon5e UI Styles module for FoundryVtt</h3>
 
   <p align="center">
-    A module for FoundryVtt that provides compendiums containing over 200 items for the Pokemon5e system with limited support for BetterRolls and DynamicEffects.
+    A module for FoundryVtt that provides a customizable UI style based on the Pokémon Fire Red and Leaf Green games.
     <br />
     <br />
     <a href="https://github.com/MajorVictory/Pokemon5e-styles/issues">Report Bug / Request Feature</a>
   </p>
 </p>
-
-# Pokemon5e - UI Styles
-Adds UI Styles based on the Pokémon Firered and Leafgreen games.
 
 ## Installation
 
@@ -72,6 +69,13 @@ You can download the module in it's current state by pasting the following manif
 
 ![](readme/Menus02-9-3-2020.png)
 
+## License
+
+Pokémon Firered and Leafgreen are © Nintendo/Creatures Inc./GAME FREAK Inc.
+
+Pokemon5e UI Styles is a module for Foundry VTT by Majorvictory and is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
+
+This work is licensed under Foundry Virtual Tabletop [EULA - Limited License Agreement for module development from May 29, 2020](https://foundryvtt.com/article/license/).
 
 [foundry-shield]: https://img.shields.io/badge/Foundry-v0.6.5-informational
 [foundry-url]: https://foundryvtt.com/
