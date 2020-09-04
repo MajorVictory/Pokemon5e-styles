@@ -1046,6 +1046,19 @@ footer.compendium-footer > span:nth-child(2) {
     border-radius: 15px;
 }
 
+.window-app.minimized {
+    min-width: 325px !important;
+    min-height: 45px !important;
+}
+
+.window-app.minimized .window-header {
+    flex: 0 0 26px !important;
+}
+
+.window-app.minimized .window-header .window-title {
+    line-height: 26px !important;
+}
+
 .window-app .window-header {
     border-image: url('../../images/border-header.png') 6 repeat;
     border-width: 6px;
@@ -1078,6 +1091,11 @@ footer.compendium-footer > span:nth-child(2) {
 .window-app .window-header a > i {
 	font-size: 150%;
 	margin-top: 5px;
+}
+
+.window-app.minimized .window-header a > i {
+    font-size: 150%;
+    margin-top: 0px;
 }
 
 .window-app .window-header a {
@@ -1682,6 +1700,9 @@ nav.list-filters a.filter.active {
     font-weight: 100;
 }
 
+.dnd5e.sheet.actor ul.attributes {
+    margin-bottom: 5px;
+}
 
 .dnd5e.sheet.actor ul.attributes li.attribute {
     border-radius: 0px;

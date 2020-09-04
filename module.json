@@ -1,8 +1,8 @@
 {
   "name": "Pokemon5e-styles",
   "title": "Pokemon5e UI Styles",
-  "description": "Adds UI Styles based on the Pokémon Firered and Leafgreen games.",
-  "version": "0.1",
+  "description": "Adds UI Styles loosely based on the Pokémon Firered and Leafgreen games.",
+  "version": "1.0.0",
   "author": "MajorVictory",
   "esmodules": [
     "p5e-styles-scripts.js"
@@ -20,7 +20,7 @@
   "packs": [],
   "url": "https://github.com/MajorVictory/Pokemon5e-styles",
   "manifest": "https://raw.githubusercontent.com/MajorVictory/Pokemon5e-styles/master/module.json",
-  "download": "https://github.com/MajorVictory/Pokemon5e-styles/releases/download/v0.1/Pokemon5e-styles.zip",
+  "download": "https://github.com/MajorVictory/Pokemon5e-styles/releases/download/v1.0.0/Pokemon5e-styles.zip",
   "minimumCoreVersion": "0.6.6",
   "compatibleCoreVersion": "0.6.6"
 }
