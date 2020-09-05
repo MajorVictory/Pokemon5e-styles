@@ -4,6 +4,14 @@
 [![Issues][issues-shield]][issues-url]
 [![All Release Downloads](https://img.shields.io/github/downloads/MajorVictory/Pokemon5e-styles/total.svg)]()
 
+# This project is now: RetroUI - P5e
+
+https://github.com/MajorVictory/RetroUI-P5e
+
+I will keep this project open for posterity, but all future updates will not be pushed here.
+
+<hr>
+
 <br />
 <p align="center">
   <a href="https://github.com/MajorVictory/Pokemon5e-styles">
